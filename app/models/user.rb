@@ -1,9 +1,17 @@
 class  User < ActiveRecord::Base
-
   include ActiveUUID::UUID
 
-
   attr_accessor :password_confirmation
+
+
+  before_create :set_register_token
+
+
+  def set_register_token
+    self.register_token = SecureRandom.hex(12)
+    self.register_token_sent_at = Time.now
+  end
+
 
   def password
     @password
