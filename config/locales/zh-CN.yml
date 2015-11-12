@@ -1,0 +1,143 @@
+
+"zh-CN":
+  date:
+    formats:
+      default: "%Y-%m-%d"
+      short: "%b%d日"
+      long: "%Y年%b%d日"
+
+    day_names: [星期天, 星期一,  星期二,  星期三,  星期四,  星期五, 星期六]
+    abbr_day_names: [周日, 周一, 周二, 周三, 周四, 周五, 周六]
+
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%a, %Y年%B%d日 %H:%M:%S %z"
+      short: "%Y年%B%d日 %H:%M"
+      very_short: "%Y年%B%d日"
+      long: "%Y年%B%d日 %H:%M"
+      date_only: "%Y年%B%d日"
+      time_only: "%H:%M"
+    am: 上午
+    pm: 下午
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "半分钟"
+      less_than_x_seconds:
+        one: "不到1秒"
+        other: "不到%{count}秒"
+      x_seconds:
+        one: "1秒"
+        other: "%{count}秒"
+      less_than_x_minutes:
+        one: "不到1分钟"
+        other: "不到%{count}分钟"
+      x_minutes:
+        one: "1分钟"
+        other: "%{count}分钟"
+      about_x_hours:
+        one: "大约1小时"
+        other: "大约%{count}小时"
+      x_days:
+        one: "1天"
+        other: "%{count}天"
+      about_x_months:
+        one: "大约1月"
+        other: "大约%{count}月"
+      x_months:
+        one: "1月"
+        other: "%{count}月"
+      about_x_years:
+        one: "大约1年"
+        other: "大约%{count}年"
+      over_x_years:
+        one: "1年多"
+        other: "%{count}年多"
+      almost_x_years:
+        one: "大约1年"
+        other: "大约%{count}年"
+    prompts:
+      year: "年"
+      month: "月"
+      day: "日"
+      hour: "时"
+      minute: "分"
+      second: "秒"
+
+  helpers:
+    select:
+      prompt: "请选择"
+
+    submit:
+      create: '新建%{model}'
+      update: '更新%{model}'
+      submit: '提交%{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "不包含于列表中"
+      exclusion: "是保留关键字"
+      invalid: "是无效的"
+      confirmation: "不一致"
+      accepted: "必须同意"
+      empty: "不能为空"
+      blank: "不能为空"
+      exists_already: '已经存在'
+      too_long: "太长（最多%{count}字节）"
+      too_short: "太短（至少%{count}字节）"
+      wrong_length: "长度不对（应该是%{count}字节）"
+      not_a_number: "不是数字"
+      not_an_integer: "必须是整数"
+      greater_than: "必须大于%{count}"
+      greater_than_or_equal_to: "必须大于或等于%{count}"
+      equal_to: "必须等于%{count}"
+      less_than: "必须小于%{count}"
+      less_than_or_equal_to: "必须小于或等于%{count}"
+      odd: "必须是单数"
+      even: "必须是双数"
+      invalid_characters: '不能包括这些字符: < > : " / \ | ? *'
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "有1个错误导致%{model}无法被保存"
+          other: "有%{count}个错误发生导致%{model}无法被保存"
+        body: "如下字段出现错误"
+
+      messages:
+        taken: "已经被使用"
+        record_invalid: "验证失败: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+    attributes:
+      user:
+        email: 邮箱
+        name: 用户名
+        password: 密码
+
+      register:
+        register_user: 注册用户
+        welcome_register_user: "欢迎注册使用#{app}"
+        submit_register: 提交注册
+        register_user_sccess: 用户注册成功
+
+
+
+  # general
+  back: 返回
+  save: 保存
+  name: 名字
+  email: 邮箱

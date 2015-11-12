@@ -1,7 +1,6 @@
 namespace :db do
-
-	desc 'install app'
-	task :install do
+	desc 'init app'
+	task :init do
 		puts 'Creating database... '
 		system 'bundle exec rake db:create'
 		system 'bundle exec rake db:migrate'
@@ -25,7 +24,7 @@ namespace :db do
 		end
 
 		puts "\n"
-		puts 'install succesfully.'
+		puts 'init succesfully.'
 		puts "\n"
 	end
 	desc 'create users'

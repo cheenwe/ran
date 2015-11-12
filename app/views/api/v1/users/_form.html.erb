@@ -1,0 +1,61 @@
+<%= form_for(@api_v1_user) do |f| %>
+  <% if @api_v1_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@api_v1_user.errors.count, "error") %> prohibited this api_v1_user from being saved:</h2>
+
+      <ul>
+      <% @api_v1_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :passwd_salt %><br>
+    <%= f.text_field :passwd_salt %>
+  </div>
+  <div class="field">
+    <%= f.label :encrypted_password %><br>
+    <%= f.text_field :encrypted_password %>
+  </div>
+  <div class="field">
+    <%= f.label :remember_token %><br>
+    <%= f.text_field :remember_token %>
+  </div>
+  <div class="field">
+    <%= f.label :reset_password_token %><br>
+    <%= f.text_field :reset_password_token %>
+  </div>
+  <div class="field">
+    <%= f.label :reset_password_sent_at %><br>
+    <%= f.datetime_select :reset_password_sent_at %>
+  </div>
+  <div class="field">
+    <%= f.label :register_token %><br>
+    <%= f.text_field :register_token %>
+  </div>
+  <div class="field">
+    <%= f.label :register_token_sent_at %><br>
+    <%= f.text_field :register_token_sent_at %>
+  </div>
+  <div class="field">
+    <%= f.label :sign_in_count %><br>
+    <%= f.number_field :sign_in_count %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Api V1 Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Passwd salt</th>
+      <th>Encrypted password</th>
+      <th>Remember token</th>
+      <th>Reset password token</th>
+      <th>Reset password sent at</th>
+      <th>Register token</th>
+      <th>Register token sent at</th>
+      <th>Sign in count</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @api_v1_users.each do |api_v1_user| %>
+      <tr>
+        <td><%= api_v1_user.name %></td>
+        <td><%= api_v1_user.phone %></td>
+        <td><%= api_v1_user.email %></td>
+        <td><%= api_v1_user.passwd_salt %></td>
+        <td><%= api_v1_user.encrypted_password %></td>
+        <td><%= api_v1_user.remember_token %></td>
+        <td><%= api_v1_user.reset_password_token %></td>
+        <td><%= api_v1_user.reset_password_sent_at %></td>
+        <td><%= api_v1_user.register_token %></td>
+        <td><%= api_v1_user.register_token_sent_at %></td>
+        <td><%= api_v1_user.sign_in_count %></td>
+        <td><%= link_to 'Show', api_v1_user %></td>
+        <td><%= link_to 'Edit', edit_api_v1_user_path(api_v1_user) %></td>
+        <td><%= link_to 'Destroy', api_v1_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_api_v1_user_path %>

@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  get '/login', :to => 'sessions#new', :as => 'login'
+  delete '/logout', :to => 'sessions#destroy'
+  get '/register', :to => 'register#new'
+
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  resources :register, :only => [:new, :create, :edit, :update]
+
+  namespace :api do
+    namespace :v1 do
+      resources :users
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

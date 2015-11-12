@@ -14,6 +14,8 @@ gem 'jquery-rails'
 gem 'ransack'
 gem 'sidekiq'
 gem 'mysql2'
+gem "activeuuid"
+gem 'simple_form'
 
 group :development, :test do
 

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @api_v1_user.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @api_v1_user.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @api_v1_user.email %>
+</p>
+
+<p>
+  <strong>Passwd salt:</strong>
+  <%= @api_v1_user.passwd_salt %>
+</p>
+
+<p>
+  <strong>Encrypted password:</strong>
+  <%= @api_v1_user.encrypted_password %>
+</p>
+
+<p>
+  <strong>Remember token:</strong>
+  <%= @api_v1_user.remember_token %>
+</p>
+
+<p>
+  <strong>Reset password token:</strong>
+  <%= @api_v1_user.reset_password_token %>
+</p>
+
+<p>
+  <strong>Reset password sent at:</strong>
+  <%= @api_v1_user.reset_password_sent_at %>
+</p>
+
+<p>
+  <strong>Register token:</strong>
+  <%= @api_v1_user.register_token %>
+</p>
+
+<p>
+  <strong>Register token sent at:</strong>
+  <%= @api_v1_user.register_token_sent_at %>
+</p>
+
+<p>
+  <strong>Sign in count:</strong>
+  <%= @api_v1_user.sign_in_count %>
+</p>
+
+<%= link_to 'Edit', edit_api_v1_user_path(@api_v1_user) %> |
+<%= link_to 'Back', api_v1_users_path %>
