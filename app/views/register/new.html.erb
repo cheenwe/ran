@@ -1,28 +1,28 @@
-<% content_for :title, t(:register_user) -%>
+<% content_for :title, I18n.t(:"register.register_user") -%>
 
 <h1><%= content_for :title %></h1>
 <p>
-  <%= t :welcome_register_user %>
+  <%= I18n.t :"register.welcome_register_user" %>
 </p>
 <%= form_for @user, :url => { :action => 'create' } do |f| %>
   <%#= f.error_messages %>
   <p>
-    <%= f.label :name, t(:username) %>:<br>
-    <%= f.text_field :name, { :class => 'text_input' } %>
+    <%= f.label :name %>:<br>
+    <%= f.text_field :name %>
   </p>
   <p>
     <%= f.label :email %>:<br>
-    <%= f.text_field :email, { :class => 'text_input' } %>
+    <%= f.text_field :email %>
   </p>
   <p>
-    <%= label_tag :password %>:<br>
-    <%= f.password_field :password, { :class => 'text_input' } %>
+    <%= f.label :password %>:<br>
+    <%= f.password_field :password %>
   </p>
   <p>
-    <%= label_tag :confirm_password %>:<br>
-    <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
+    <%= f.label :confirm_password %>:<br>
+    <%= f.password_field :password_confirmation %>
   </p>
   <p>
-    <%= f.submit t(:submit_register) %>
+    <%= f.submit I18n.t(:"register.submit_register") %>
   </p>
 <% end %>

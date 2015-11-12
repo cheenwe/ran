@@ -9,7 +9,7 @@ class RegisterController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to new_session_url, :notice => t(:register_user_sccess)
+      redirect_to login_url, :notice => t(:register_user_sccess)
     else
       render :action => 'new'
     end

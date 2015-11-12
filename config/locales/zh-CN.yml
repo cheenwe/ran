@@ -1,4 +1,3 @@
-
 "zh-CN":
   date:
     formats:
@@ -127,12 +126,33 @@
         email: 邮箱
         name: 用户名
         password: 密码
+        confirm_password: 确认密码
+
 
       register:
+        name: 用户名
+        password: 密码
+        confirm_password: 确认密码
         register_user: 注册用户
         welcome_register_user: "欢迎注册使用#{app}"
         submit_register: 提交注册
         register_user_sccess: 用户注册成功
+
+  user:
+    email: 邮箱
+    name: 用户名
+    password: 密码
+    confirm_password: 确认密码
+
+
+  register:
+    name: 用户名
+    password: 密码
+    confirm_password: 确认密码
+    register_user: 注册用户
+    welcome_register_user: "欢迎注册使用#{app}"
+    submit_register: 提交注册
+    register_user_sccess: 用户注册成功
 
 
 
