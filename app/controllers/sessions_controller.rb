@@ -1,11 +1,12 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_login
+  skip_before_action :authenticate_login
 
   def new
+    @user = User.new
   end
 
   def create
-    @user = User.authenticate(params[:name], params[:password])
+    @user = User.authenticate(params[:user][:name], params[:user][:password])
 
     unless @user.nil?
       if params[:remember_me] == 'true'
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
       end
 
       session[:user_id] = @user.id
-      redirect_url = session.delete(:return_to) || folders_url
+      redirect_url = session.delete(:return_to) || users_url
       redirect_to redirect_url, :only_path => true
     else
       log_failed_sign_in_attempt(Time.now, params[:name], request.remote_ip)
@@ -23,7 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    current_user.forget_me
+    current_user.refresh_remember_token
     cookies.delete :auth_token
     reset_session
     session[:user_id] = nil

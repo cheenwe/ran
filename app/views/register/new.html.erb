@@ -4,22 +4,23 @@
 <p>
   <%= I18n.t :"register.welcome_register_user" %>
 </p>
+
 <%= form_for @user, :url => { :action => 'create' } do |f| %>
   <%#= f.error_messages %>
   <p>
-    <%= f.label :name %>:<br>
+    <%= f.label  I18n.t(:"user.name") %>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :email %>:<br>
+    <%= f.label  I18n.t(:"user.email") %>
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :password %>:<br>
+    <%= f.label  I18n.t(:"user.password") %>
     <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.label :confirm_password %>:<br>
+    <%= f.label  I18n.t(:"user.confirm_password") %>
     <%= f.password_field :password_confirmation %>
   </p>
   <p>
