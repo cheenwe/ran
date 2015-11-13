@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.authenticate(params[:user][:name], params[:user][:password])
+    @user = User.new.authenticate(params[:user][:name], params[:user][:password])
 
     unless @user.nil?
       if params[:remember_me] == 'true'

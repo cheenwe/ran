@@ -3,9 +3,16 @@
 <h1><%= content_for :title %></h1>
 
 <%= simple_form_for @user,  url: sessions_path  do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_field :password %>
-  <%= f.button :submit %>
+  <div class="input-group form-group">
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      <%= f.input :name, label: false, placeholder: "邮箱", class: "form-control" %>
+  </div>
+  <div class="input-group form-group">
+    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <%= f.input :password, label: false, placeholder: "密码", class: "form-control" %>
+  </div>
+  <%= f.submit "登陆", class: "btn btn-primary btn-block" %>
+
 <% end %>
 
 
