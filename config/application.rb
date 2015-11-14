@@ -27,8 +27,11 @@ module Ran
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
 
-    config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
+
+    I18n.enforce_available_locales = true
+
+    config.log_level = Rails.env.production? ? :info : :debug
 
     config.encoding = "utf-8"
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.

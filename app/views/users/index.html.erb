@@ -3,7 +3,7 @@
   <div class="user_welcome">
     <p>
       <%= t :hello %>, <%= current_user.name %>!<br>
-      <%= link_to t(:settings), edit_user_path(current_user) %> | <%= link_to t(:logout), logout_path, :method => :delete %>
+      <%= link_to t(:settings), edit_user_path(current_user) %> | <%= link_to t(:logout), logout_path(locale: I18n.locale), :method => :delete %>
     </p>
   </div>
   <% end -%>

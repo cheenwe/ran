@@ -1,21 +1,57 @@
-<% content_for :title, t(:sign_in) -%>
-
-<h1><%= content_for :title %></h1>
-
-<%= simple_form_for @user,  url: sessions_path  do |f| %>
-  <div class="input-group form-group">
-    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-      <%= f.input :name, label: false, placeholder: "邮箱", class: "form-control" %>
-  </div>
-  <div class="input-group form-group">
-    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <%= f.input :password, label: false, placeholder: "密码", class: "form-control" %>
-  </div>
-  <%= f.submit "登陆", class: "btn btn-primary btn-block" %>
-
-<% end %>
+<div class="block-center mt-xl wd-xl">
 
 
-<div class="linking">
-  <a href="http://cheenwe.cn" target="_blank">xxx</a>
+	<div class="panel panel-dark panel-flat">
+	   <div class="panel-heading text-center">
+	      <a href="#">
+	         <img src="<%= image_path('logo.png') %>" alt="Image" class="block-center green" />
+	      </a>
+	   </div>
+	   <div class="panel-body">
+	      <p class="text-center pv"><% content_for :title, t(:sign_in) -%></p>
+	      <form role="form" data-parsley-validate="" novalidate="" class="mb-lg">
+	         <div class="form-group has-feedback">
+	            <input id="exampleInputEmail1" type="email" placeholder="Enter email" autocomplete="off" required="required" class="form-control" />
+	            <span class="fa fa-envelope form-control-feedback text-muted"></span>
+	         </div>
+	         <div class="form-group has-feedback">
+	            <input id="exampleInputPassword1" type="password" placeholder="Password" required="required" class="form-control" />
+	            <span class="fa fa-lock form-control-feedback text-muted"></span>
+	         </div>
+	         <div class="clearfix">
+	            <div class="checkbox c-checkbox pull-left mt0">
+	               <label>
+	                  <input type="checkbox" value="" name="remember" />
+	                  <span class="fa fa-check"></span>Remember Me</label>
+	            </div>
+	            <div class="pull-right"><a href="/pages/recover" class="text-muted">Forgot your password?</a>
+	            </div>
+	         </div>
+	         <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
+	      </form>
+	      <p class="pt-lg text-center">Need to Signup?</p><a href="/pages/register" class="btn btn-block btn-default">Register Now</a>
+	   </div>
+	</div>
+
+
+
+	<h1><%= content_for :title %></h1>
+
+	<%= simple_form_for @user,  url: sessions_path  do |f| %>
+		<div class="input-group form-group">
+			<span class="input-group-addon"><i class="fa fa-user"></i></span>
+			<%= f.input :name, label: false, placeholder: "邮箱", class: "form-control" %>
+		</div>
+		<div class="input-group form-group">
+			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+			<%= f.password_field :password, label: false, placeholder: "密码", class: "form-control" %>
+		</div>
+		<%= f.submit "登陆", class: "btn btn-primary btn-block" %>
+
+	<% end %>
+
+
+	<div class="linking">
+		<a href="http://cheenwe.cn" target="_blank">xxx</a>
+	</div>
 </div>

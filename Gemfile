@@ -20,9 +20,7 @@ gem 'simple_form'
 group :development, :test do
 
   gem "better_errors"
-  gem "pry"
   gem "pry-rails"
-  gem "hirb"
   gem 'sqlite3'
   gem 'faker'
   #生成假数据，如姓名，地址和电话号码

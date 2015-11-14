@@ -20,7 +20,4 @@ class  User < ActiveRecord::Base
 	  save(:validate => false)
 	end
 
-
-
-
 end
