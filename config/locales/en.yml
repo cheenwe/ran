@@ -20,4 +20,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello "
+  session:
+    welcome_login: LOGIN IN TO CONTINUE
+    name_placeholder: Enter Name or Email
+    password_placeholder: Enter password
+    remember: Remember me
+    forgot_password: Forgot Password
+    submit_login: Let Me In
+    register_content: Need to Signup?
+    register: Register Now
+
+  register:
+    name: Name
+    password: Password
+    confirm_password: Confirm Password
+    register_user: Register
+    welcome_register_user: "Welcome "
+    submit_register: Register Now
+    register_user_sccess: Register Success
+    login_content: Have an Account?
+    login: Login Now
+    name_placeholder: Enter Name
+    email_placeholder: Enter Email
+    password_placeholder: Enter Password

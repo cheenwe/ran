@@ -1,29 +1,41 @@
-<% content_for :title, I18n.t(:"register.register_user") -%>
+<div class="block-center mt-xl wd-xl">
+  <div class="panel panel-dark panel-flat">
+    <div class="panel-heading text-center">
+      <a href="#">
+        <img src="<%= image_path('logo.png') %>" alt="Image" class="block-center green" />
+      </a>
+    </div>
+    <div class="panel-body">
+      <p class="text-center pv"><%= I18n.t :"register.register_user" %></p>
 
-<h1><%= content_for :title %></h1>
-<p>
-  <%= I18n.t :"register.welcome_register_user" %>
-</p>
+      <%= simple_form_for @user,  url: register_index_path  do |f| %>
+        <div class="form-group has-feedback">
+          <%= f.text_field :name,placeholder: I18n.t(:"register.name_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
+        </div>
 
-<%= form_for @user, :url => { :action => 'create' } do |f| %>
-  <%#= f.error_messages %>
-  <p>
-    <%= f.label  I18n.t(:"user.name") %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label  I18n.t(:"user.email") %>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label  I18n.t(:"user.password") %>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label  I18n.t(:"user.confirm_password") %>
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.submit I18n.t(:"register.submit_register") %>
-  </p>
-<% end %>
+        <div class="form-group has-feedback">
+          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
+        </div>
+
+        <div class="form-group has-feedback">
+          <%= f.text_field :password,placeholder: I18n.t(:"register.password_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
+        </div>
+        <%= f.submit I18n.t(:"register.submit_register"), class: "btn btn-primary btn-block" %>
+      <% end %>
+
+      <p class="pt-lg text-center"><%= I18n.t :"register.login_content" %></p>
+      <a href="<%= login_url(locale: I18n.locale)%>" class="btn btn-block btn-default"><%= I18n.t :"register.login" %></a>
+    </div>
+  </div>
+
+  <div class="p-lg text-center">
+    <span>&copy;</span>
+    <span>2015</span>
+    <span>-</span>
+    <span>
+      <a href="http://cheenwe.cn" target="_blank">Ran</a>
+    </span>
+  </div>
+</div>
+
+
