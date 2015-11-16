@@ -16,6 +16,8 @@
            <span class="fa fa-envelope form-control-feedback text-muted"></span>
         </div>
         <%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block" %>
+
+        <%= link_to t(:back), new_session_path, class: "btn btn-default btn-block" %>
       <% end %>
     </div>
   </div>

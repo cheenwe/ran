@@ -22,7 +22,7 @@ class  User < ActiveRecord::Base
 
 
 	before_save :clear_reset_password_token, :unless => :not_clear_reset_password_token
-	def refresh_password_reset_token
+	def refresh_reset_password_token
 		self.reset_password_token = SecureRandom.hex(24)
 		self.reset_password_sent_at = Time.now
 		self.not_clear_reset_password_token = true

@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
+    I18n.locale = user_locale
 
-  def default_url_options(options={})
-    logger.debug "default_url_options is passed options: #{options.inspect}\n"
-    { locale: I18n.locale }
+    # after store current locale
+    cookies[:locale] = params[:locale] if params[:locale]
+  rescue I18n::InvalidLocale
+    I18n.locale = I18n.default_locale
   end
 
 
@@ -48,4 +48,14 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  private
+
+    def user_locale
+      params[:locale] || cookies[:locale] || http_head_locale || I18n.default_locale
+    end
+
+    def http_head_locale
+      http_accept_language.language_region_compatible_from(I18n.available_locales)
+    end
 end

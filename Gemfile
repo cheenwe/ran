@@ -11,6 +11,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
+
+gem 'rails-i18n'
+gem 'http_accept_language'
+
 gem 'ransack'
 gem 'sidekiq'
 gem 'mysql2'

@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   delete '/logout', :to => 'sessions#destroy'
   get '/register', :to => 'register#new'
 
-  scope "/:locale" do
     resources :sessions, :only => [:new, :create, :destroy]
 
     resources :register, :only => [:new, :create, :edit, :update]
     resources :password_reset, :only =>  [:new, :create, :edit, :update]
 
     resources :users
-  end
+
   namespace :api do
     namespace :v1 do
       resources :users
@@ -19,7 +18,6 @@ Rails.application.routes.draw do
   end
 
 
-  get '/:locale' => 'users#index'
   root :to => "users#index"
 
 end
