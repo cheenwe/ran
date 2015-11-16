@@ -13,6 +13,7 @@ test/
 wiki/
 public/uploads/*
 config/database.yml
+config/email.yml
 config/secrets.yml
 config/deploy.rb
 db/data.yml

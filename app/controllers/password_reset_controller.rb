@@ -3,17 +3,18 @@ class PasswordResetController < ApplicationController
   skip_before_action :authenticate_login
 
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by_email(params[:email])
+    user = User.find_by_email(user_params[:email])
 
     unless user.nil?
       user.refresh_password_reset_token
       UserMailer.password_reset_email(user).deliver_now
     end
 
-    redirect_to new_password_reset_url, :notice => t(:instruction_email_sent, :email => params[:email])
+    redirect_to new_password_reset_url, :notice => t(:instruction_email_sent, :email => user_params[:email])
   end
 
   # Note: @user is set in require_valid_token
@@ -32,10 +33,14 @@ class PasswordResetController < ApplicationController
   private
 
   def require_valid_token
-    @user = User.find_by_password_reset_token(params[:id])
+    @user = User.find_by_password_reset_token(user_params[:id])
 
     if @user.nil? || @user.reset_password_sent_at < Time.now
       redirect_to new_password_reset_url, :alert => t(:reset_url_expired)
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :phone, :email,:password, :password_confirmation)
   end
 end

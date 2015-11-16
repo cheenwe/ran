@@ -43,3 +43,10 @@ en:
     name_placeholder: Enter Name
     email_placeholder: Enter Email
     password_placeholder: Enter Password
+
+
+  password_reset:
+    title: PASSWORD RESET
+    content: Enter your username and an email containing a password reset link will be sent to the email addresses associated with your account.
+    email: Email
+    email_placeholder: Enter email

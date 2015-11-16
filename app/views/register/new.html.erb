@@ -10,11 +10,11 @@
 
       <%= simple_form_for @user,  url: register_index_path  do |f| %>
         <div class="form-group has-feedback">
-          <%= f.text_field :name,placeholder: I18n.t(:"register.name_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
+          <%= f.text_field :name,placeholder: I18n.t(:"register.name_placeholder"),required:"required",class:"form-control input-lg m-b" %>
         </div>
 
         <div class="form-group has-feedback">
-          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
+          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required",class:"form-control input-lg m-b" %>
         </div>
 
         <div class="form-group has-feedback">

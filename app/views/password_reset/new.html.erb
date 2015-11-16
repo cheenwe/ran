@@ -1,16 +1,31 @@
-<% content_for :title, t(:reset_password) -%>
+<div class="block-center mt-xl wd-xl">
+  <div class="panel panel-dark panel-flat">
+    <div class="panel-heading text-center">
+       <a href="#">
+          <img src="<%= image_path('logo.png') %>" alt="Image" class="block-center img-rounded" />
+       </a>
+    </div>
+    <div class="panel-body">
+      <p class="text-center pv"><%= I18n.t :"password_reset.title" %></p>
 
-<h1><%= content_for :title %></h1>
-<p>
-  <%#= render 'message' %>
-</p>
-<%= form_tag(password_reset_index_path) do %>
-  <p>
-    <%= label_tag :email, t(:email) %>:<br>
-    <%= text_field_tag :email, nil, :class => 'text_input' %>
-  </p>
-  <p>
-    <%= submit_tag t(:send_email) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:back), new_session_path %>
-  </p>
-<% end %>
+      <small class="text-center"><%= I18n.t :"password_reset.content" %> </small>
+      <%= simple_form_for @user, :url => { :action => 'create' }  do |f| %>
+
+        <div class="form-group has-feedback">
+          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+           <span class="fa fa-envelope form-control-feedback text-muted"></span>
+        </div>
+        <%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="p-lg text-center">
+    <span>&copy;</span>
+    <span>2015</span>
+    <span>-</span>
+    <span>
+      <a href="http://cheenwe.cn" target="_blank">Ran</a>
+    </span>
+  </div>
+</div>

@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="description" content="Ran is a demo made by cheenwe ">
+	<meta name="keywords" content="cheenwe.cn,Ran">
+	<title>Ran</title>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Ran is a demo made by cheenwe ">
-  <meta name="keywords" content="cheenwe.cn,Ran">
-  <title>Ran</title>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 
 <body>
 
-  <div class="wrapper">
+	<div class="wrapper">
 
-    <% if signed_in? %>
-      <header class="topnavbar-wrapper">
-        <%#= render partial: "layouts/navbar" %>
-      </header>
-      <aside class="aside">
-        <%#= render partial: "layouts/sidebar" %>
-      </aside>
-      <aside class="offsidebar">
-        <%#= render partial: "layouts/offsidebar" %>
-      </aside>
-      <section>
-        <div class="content-wrapper">
-           <%= yield %>
-        </div>
-      </section>
+		<% if signed_in? %>
+			<header class="topnavbar-wrapper">
+				<%#= render partial: "layouts/navbar" %>
+			</header>
+			<aside class="aside">
+				<%#= render partial: "layouts/sidebar" %>
+			</aside>
+			<aside class="offsidebar">
+				<%#= render partial: "layouts/offsidebar" %>
+			</aside>
+			<section>
+				<div class="content-wrapper">
+					 <%= yield %>
+				</div>
+			</section>
 
-      <footer>
-        <%= render partial: "/layouts/partial/footer" %>
-      </footer>
-    <% else %>
-      <%= yield %>
+			<footer>
+				<%= render partial: "/layouts/partial/footer" %>
+			</footer>
+		<% else %>
 
-    <% end %>
-  </div>
+			<div class="pull-right">
+				<div class="btn-group">
+					<button type="button" data-toggle="dropdown" class="btn btn-default" aria-expanded="false">Language/语言</button>
+					<ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+						 <li>
+						 	<a href="<%= root_url(locale: "en")%>">English</a>
+						 </li>
+						 <li>
+						 	<a href="<%= root_url(locale: "zh-hans")%>">中文</a>
+						 </li>
+					</ul>
+				</div>
+			</div>
+
+			<%= yield %>
+
+		<% end %>
+	</div>
 
 </body>
 </html>

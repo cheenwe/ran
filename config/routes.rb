@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :sessions, :only => [:new, :create, :destroy]
 
     resources :register, :only => [:new, :create, :edit, :update]
-    resources :password_reset, :except => [:index, :show, :destroy]
+    resources :password_reset, :only =>  [:new, :create, :edit, :update]
 
     resources :users
   end
