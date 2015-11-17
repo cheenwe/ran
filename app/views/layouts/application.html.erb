@@ -28,12 +28,13 @@
 			</aside>
 			<section>
 				<div class="content-wrapper">
-					 <%= yield %>
+					<%= notice_message %>
+					<%= yield %>
 				</div>
 			</section>
 
 			<footer>
-				<%= render partial: "/layouts/partial/footer" %>
+				<%= render "shared/footer"%>
 			</footer>
 		<% else %>
 
@@ -42,8 +43,7 @@
 					<button type="button" data-toggle="dropdown" class="btn btn-default" aria-expanded="false">Language/语言</button>
 					<ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
 						<li>
-
-          <a href="<%= login_url(locale: "en")%>">English </a>
+          						<a href="<%= login_url(locale: "en")%>">English </a>
 						</li>
 						<li>
 						 	<a href="<%= login_url(locale: "zh-hans")%>">中文</a>
@@ -52,6 +52,7 @@
 				</div>
 			</div>
 
+			<%#= notice_message %>
 			<%= yield %>
 
 		<% end %>

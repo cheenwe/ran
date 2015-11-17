@@ -16,10 +16,10 @@ class SessionsController < ApplicationController
 
       session[:user_id] = @user.id
       redirect_url = session.delete(:return_to) || users_url
-      redirect_to redirect_url, :only_path => true
+      redirect_to redirect_url, :only_path => true, :notice => t("sessions.login_success")
     else
       log_failed_sign_in_attempt(Time.now, params[:name], request.remote_ip)
-      redirect_to new_session_url, :alert => t(:credentials_incorrect)
+      redirect_to new_session_url, :alert => t("sessions.login_failure")
     end
   end
 

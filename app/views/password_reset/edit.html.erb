@@ -1,19 +1,30 @@
+<div class="block-center mt-xl wd-xl">
+	<div class="panel panel-dark panel-flat">
+		<div class="panel-heading text-center">
+			<a href="#">
+				<img src="<%= image_path('logo.png') %>" alt="Image" class="block-center img-rounded" />
+			</a>
+		</div>
+		<div class="panel-body">
+			<p class="text-center pv"><%= I18n.t :"password_reset.title" %></p>
+			<small class="text-center"><%= I18n.t :"password_reset.content" %> </small>
+			<%= render "shared/error_messages", target: @user %>
+			<%= notice_message %>
+			<%= simple_form_for @user, :url => { :action => 'update' }  do |f| %>
+				<div class="form-group has-feedback">
+					<%= f.password_field :password,placeholder: I18n.t(:"password_reset.password_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+					<span class="fa fa-lock form-control-feedback text-muted"></span>
+				</div>
 
-<% content_for :title, t(:password_reset) -%>
+				<div class="form-group has-feedback">
+					<%= f.password_field :password_confirmation,placeholder: I18n.t(:"password_reset.password_confirmation_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+					<span class="fa fa-lock form-control-feedback text-muted"></span>
+				</div>
+				<%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block btn-lg" %>
+				<%#= link_to t(:back), new_session_path, class: "btn btn-default btn-block  btn-lg" %>
+			<% end %>
+		</div>
+	</div>
 
-<h1><%= content_for :title %></h1>
-<%= form_for @user, :url => { :action => 'update' } do |f| %>
-  <%#= f.error_messages %>
-  <p>
-    <%= label_tag :password, t(:password) %>:<br>
-    <%= f.password_field :password, { :class => 'text_input' } %>
-  </p>
-  <p>
-    <%= label_tag :confirm_password, t(:confirm_password) %>:<br>
-    <%= f.password_field :password_confirmation, { :class => 'text_input' } %>
-  </p>
-  <p>
-    <%= f.submit t(:password_reset) %> &nbsp; &mdash; &nbsp;
-    <%= link_to t(:back), new_session_path %>
-  </p>
-<% end %>
+	<%= render "shared/footer"%>
+</div>

@@ -21,7 +21,7 @@ module Concerns
 
 			def authenticate(name, password)
 				return nil if name.blank? || password.blank?
-				user = self.class.find_by_name(name) or return nil
+				user = self.class.find_by_name(name)  or user = self.class.find_by_name(email)  or user = self.class.find_by_name(phone)  or return nil
 				hash = legacy_password_hash(user.password_salt,password)
 				hash == user.encrypted_password ? user : nil
 			end

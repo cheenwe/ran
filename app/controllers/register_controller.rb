@@ -11,9 +11,9 @@ class RegisterController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to login_url, :notice => t(:register_user_sccess)
+      redirect_to login_url, :notice => t("register.register_sccess")
     else
-      render :action => 'new'
+      redirect_to register_url, :alert => t("register.register_failure")
     end
 
   end

@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/js/bootstrap.min
+//= require parsley
+
+
+//= require_tree ./ran/
 //= require_tree .
+

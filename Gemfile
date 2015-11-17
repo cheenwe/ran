@@ -12,14 +12,16 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 
 
-gem 'rails-i18n'
-gem 'http_accept_language'
 
 gem 'ransack'
 gem 'sidekiq'
 gem 'mysql2'
 gem "activeuuid"
 gem 'simple_form'
+
+gem 'rails-i18n'
+gem 'http_accept_language'
+gem 'settingslogic'
 
 group :development, :test do
 

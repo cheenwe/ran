@@ -58,42 +58,66 @@
     email: 邮箱
     name: 用户名
     password: 密码
-    confirm_password: 确认密码
+    password_confirmation: 确认密码
+    user_not_find: 用户不存在
 
 
   register:
     name: 用户名
     password: 密码
-    confirm_password: 确认密码
-    register_user: 注册用户
+    password_confirmation: 确认密码
+    register_user: 立即注册
     welcome_register_user: "欢迎注册使用"
-    submit_register: 提交注册
-    register_user_sccess: 用户注册成功
+    submit_register: 立即注册
+    register_sccess: 用户注册成功
+    register_failure: 用户注册失败
 
     login_content: 已有账号
-    login: 登陆
+    login: 返回登陆
     name_placeholder: 输入用户名
     email_placeholder: 输入邮箱
     password_placeholder: 输入密码
 
-  session:
+  sessions:
     welcome_login: 欢迎登陆
     name_placeholder: 请输入用户名或邮箱
     password_placeholder: 请输入密码
     remember: 记住我
-    forgot_password: 忘记密码
+    forgot_password: 忘记密码 ?
     submit_login: 登陆系统
     register_content: 没有账号？
     register: 注册账号
+    login_failure: 登陆失败
+    login_success: 登陆成功
 
   password_reset:
+
     title: 重置密码
     content: 输入您的用户名后，系统会发出一封邮件到您账户的电子邮件地址，该邮件含有一个重置密码的链接。
     email: 请输入邮箱
     email_placeholder: 输入邮箱
     submit: 重置密码
+    instruction_email_sent: "重置密码邮件已经发送到您的邮箱,请进入%{email}按照提示进行重置"
+    password_reset_successfully: 您的密码已成功重设。您可以登录了。
+    reset_url_expired: 密码重置链接已经失效. 请重试
+    password_not_same: 密码不一致
+    password_placeholder: 输入密码
+    password_confirmation_placeholder: 输入确认密码
+
+
+
+  mail:
+    login_from: "登录页面地址"
+    this_is_a_notification_mail_please_do_not_reply: "这是一封提醒邮件，请勿直接通过邮件回复."
+    password_reset: "%{app_name} 密码重置"
+    welcome_subject: "欢迎加入 %{app_name} "
+    welcome_title: "欢迎加入 %{app_name}"
+    you_have_successfully: "你已经成功在"
+    registered_an_account: "注册了账号。"
+
+
+
   # general
   back: 返回
   save: 保存
-  name: 名字
-  email: 邮箱
+  other_error: 服务器飞走了.... 再试一下可否?

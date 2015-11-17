@@ -20,33 +20,108 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  session:
+
+  select:
+    prompt: "Please select"
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "is not included in the list"
+      exclusion: "is reserved"
+      invalid: "is invalid"
+      confirmation: "doesn't match"
+      accepted: "must be accepted"
+      empty: "can't be empty"
+      blank: "can't be blank"
+      exists_already: 'exists already'
+      too_long: "is too long (maximum is %{count} characters)"
+      too_short: "is too short (minimum is %{count} characters)"
+      wrong_length: "is the wrong length (should be %{count} characters)"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      equal_to: "must be equal to %{count}"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      odd: "must be odd"
+      even: "must be even"
+      invalid_characters: 'cannot contain any of these characters: < > : " / \ | ? *'
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body: "There were problems with the following fields:"
+
+      messages:
+        taken: "has already been taken"
+        record_invalid: "Validation failed: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"
+
+  user:
+    email: Email
+    name: Username
+    password: Password
+    password_confirmation: Password Confirmation
+    user_not_find: User not find
+  sessions:
     welcome_login: LOGIN IN TO CONTINUE
     name_placeholder: Enter Name or Email
     password_placeholder: Enter password
     remember: Remember me
-    forgot_password: Forgot Password
+    forgot_password: Forgot Password?
     submit_login: Let Me In
     register_content: Need to Signup?
     register: Register Now
+    login_failure: Login Failure
+    login_success: Login Success
+
 
   register:
     name: Name
     password: Password
-    confirm_password: Confirm Password
+    password_confirmation: Confirm Password
     register_user: Register
     welcome_register_user: "Welcome "
     submit_register: Register Now
-    register_user_sccess: Register Success
+    register_sccess: Register Success
+    register_failure: Register Failure
     login_content: Have an Account?
     login: Login Now
     name_placeholder: Enter Name
     email_placeholder: Enter Email
     password_placeholder: Enter Password
 
-
   password_reset:
     title: PASSWORD RESET
     content: Enter your username and an email containing a password reset link will be sent to the email addresses associated with your account.
     email: Email
     email_placeholder: Enter email
+    instruction_email_sent: "Email had send to %{email}"
+    password_reset_successfully: password reset successfully
+    reset_url_expired: Url had expored
+    password_not_same: Password not same
+
+  mail:
+    login_from: "Sign in from"
+    this_is_a_notification_mail_please_do_not_reply: "This is an email notification. Please do not reply."
+    password_reset: "%{app_name} password reset"
+    welcome_subject: "Welcome to %{app_name} community"
+    welcome_title: "Welcome to %{app_name}"
+    you_have_successfully: "You have successfully registered an account in"
+    registered_an_account: "Registered an account "
+    password_placeholder: Enter Password
+    password_confirmation_placeholder: Enter Password Again
+
+  # general
+  back: Back
+  save: Save
+  other_error: Something wrong.... Have a try?

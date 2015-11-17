@@ -10,24 +10,19 @@
 
       <small class="text-center"><%= I18n.t :"password_reset.content" %> </small>
       <%= simple_form_for @user, :url => { :action => 'create' }  do |f| %>
-
+        <%= render "shared/error_messages", target: @user %>
+        <%= notice_message %>
         <div class="form-group has-feedback">
           <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
            <span class="fa fa-envelope form-control-feedback text-muted"></span>
         </div>
-        <%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block" %>
+        <%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block btn-lg" %>
 
-        <%= link_to t(:back), new_session_path, class: "btn btn-default btn-block" %>
+        <%= link_to t(:back), new_session_path, class: "btn btn-default btn-block  " %>
       <% end %>
     </div>
   </div>
 
-  <div class="p-lg text-center">
-    <span>&copy;</span>
-    <span>2015</span>
-    <span>-</span>
-    <span>
-      <a href="http://cheenwe.cn" target="_blank">Ran</a>
-    </span>
-  </div>
+
+  <%= render "shared/footer"%>
 </div>
