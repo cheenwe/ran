@@ -25,5 +25,5 @@ current
 releases/
 repo/
 revisions.log
-shared/
+shared/*
 db/schema.rb

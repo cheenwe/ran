@@ -120,14 +120,14 @@ en:
   mail:
     login_from: "Sign in from"
     this_is_a_notification_mail_please_do_not_reply: "This is an email notification. Please do not reply."
-    password_reset: "%{app_name} password reset"
-    welcome_subject: "Welcome to %{app_name} community"
+    password_reset: Password reset
+    welcome_subject: "Welcome to %{app_name} "
     welcome_title: "Welcome to %{app_name}"
     you_have_successfully: "You have successfully registered an account in"
     registered_an_account: "Registered an account "
     password_placeholder: Enter Password
     password_confirmation_placeholder: Enter Password Again
-    register_email_subject: "%{app_name} Activate account"
+    register_email_subject: Activate account
 
   # general
   back: Back

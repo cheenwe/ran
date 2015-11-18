@@ -9,11 +9,11 @@ production:
   smtp:
     address: localhost
     domain: example.com
-    # probably not needed...
-    #port: 25
-    #authentication: login
-    #user_name: user_for_smtp_auth@example.com
-    #password: password_for_smtp_auth
+    probably not needed...
+    port: 25
+    authentication: login
+    user_name: user_for_smtp_auth@example.com
+    password: password_for_smtp_auth
 
 development:
   pop:
@@ -23,8 +23,8 @@ development:
   smtp:
     address: localhost
     domain: example.com
-    # probably not needed...
-    #port: 25
-    #authentication: login
-    #user_name: user_for_smtp_auth@example.com
-    #password: password_for_smtp_auth
+    probably not needed...
+    port: 25
+    authentication: login
+    user_name: user_for_smtp_auth@example.com
+    password: password_for_smtp_auth

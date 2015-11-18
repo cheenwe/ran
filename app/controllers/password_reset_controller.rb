@@ -8,7 +8,6 @@ class PasswordResetController < ApplicationController
 
   def create
     @user = User.find_by_email(user_params[:email])
-
     if @user.nil?
       redirect_to(new_password_reset_url, alert: t("user.user_not_find"))
     else

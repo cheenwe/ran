@@ -46,6 +46,7 @@ class SessionController < ApplicationController
 
 
 	def login_not_found
+
 		if !find_user_by_name
 			redirect_to new_session_url, :alert => t("user.user_not_find")
 		else

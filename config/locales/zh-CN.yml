@@ -117,12 +117,12 @@
   mail:
     login_from: "登录页面地址"
     this_is_a_notification_mail_please_do_not_reply: "这是一封提醒邮件，请勿直接通过邮件回复."
-    password_reset: "%{app_name} 密码重置"
+    password_reset: 密码重置
     welcome_subject: "欢迎加入 %{app_name} "
     welcome_title: "欢迎加入 %{app_name}"
-    you_have_successfully: "你已经成功在"
-    registered_an_account: "注册了账号。"
-    register_email_subject: "%{app_name} 账户激活"
+    you_have_successfully: 你已经成功注册账号
+    registered_an_account: 注册了账号
+    register_email_subject: 账户激活
 
 
 

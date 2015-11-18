@@ -11,7 +11,6 @@ module Concerns
 				before_save :clear_reset_password_token, :unless => :not_clear_reset_password_token
 			end
 
-
 			def has_password?
 			  password_salt.present? || encrypted_password.present?
 			end
@@ -36,10 +35,16 @@ module Concerns
 			end
 
 			def authenticate(name, password)
-				return nil if name.blank? || password.blank?
 				user = (self.class.find_by_name(name)  ||  self.class.find_by_email(name)  || self.class.find_by_phone(name) ) or return nil
-				hash = legacy_password_hash(user.password_salt,password)
-				hash == user.encrypted_password ? user : nil
+				if user.present?
+					if user.encrypted_password == legacy_password_hash(user.password_salt, password)
+						return user
+					else
+						false
+					end
+				else
+				  nil
+				end
 			end
 
 			def legacy_password_hash(salt,password)
