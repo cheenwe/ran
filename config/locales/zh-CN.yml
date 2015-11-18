@@ -91,6 +91,11 @@
     register: 注册账号
     login_failure: 登陆失败，登陆名或密码不正确
     login_success: 登陆成功
+    max_login_attempts: 抱歉，您在15分钟内输入的错误密码次数超限，请在15分钟后再试。
+    not_activated_yet: 您的账号尚未激活
+    password_doesnt_match: 您的账号尚未激活
+    password_not_match: 您输入的密码有误，请重试。
+    name_not_find: 登陆名不存在
 
 
   password_reset:

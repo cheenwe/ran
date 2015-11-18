@@ -11,6 +11,11 @@ module Concerns
 				before_save :clear_reset_password_token, :unless => :not_clear_reset_password_token
 			end
 
+
+			def has_password?
+			  password_salt.present? || encrypted_password.present?
+			end
+
 			def refresh_reset_password_token
 				self.reset_password_token = SecureRandom.hex(24)
 				self.reset_password_sent_at = Time.now

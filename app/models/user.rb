@@ -41,4 +41,8 @@ class  User < ActiveRecord::Base
 		self.name.blank?
 	end
 
+	def can_login_in?
+		verified?
+	end
+
 end

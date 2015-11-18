@@ -83,7 +83,10 @@ en:
     register: Register Now
     login_failure: Login Failure
     login_success: Login Success
-
+    max_login_attempts: "We're sorry, but you have exceeded the maximum number of login attempts within a 15 minute period. You may try again in 15 minutes."
+    not_activated_yet: You haven't activated your account yet.
+    password_not_match: "The password you entered does not match our records. Please try again."
+    name_not_find: Landing name does not exist
 
   register:
     name: Name
