@@ -12,19 +12,31 @@
 
         <%= render "shared/error_messages", target: @user %>
         <%= notice_message %>
+
+
         <div class="form-group has-feedback">
-          <%= f.text_field :name,placeholder: I18n.t(:"register.name_placeholder"),required:"required",class:"form-control input-lg m-b" %>
+          <%= f.text_field :name,placeholder: I18n.t(:"register.name_placeholder"),required:"required",minLength:"3",class:"form-control input-lg m-b" %>
         </div>
 
         <div class="form-group has-feedback">
-          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required",class:"form-control input-lg m-b" %>
+          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required",type: "email",class:"form-control input-lg m-b" %>
         </div>
 
         <div class="form-group has-feedback">
           <%= f.password_field :password,placeholder: I18n.t(:"register.password_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
         </div>
+        <div class="form-group ">
+          <%= rucaptcha_input_tag(class: 'form-control col-md-2', placeholder: 'Input Captcha') %>
+
+          <a class="rucaptcha-image-box" href="<%= register_url%>">
+          <%= rucaptcha_image_tag(alt: 'Captcha') %>
+          </a>
+        </div>
+
         <%= f.submit I18n.t(:"register.submit_register"), class: "btn btn-primary btn-block btn-lg" %>
       <% end %>
+
+
 
       <p class="pt-lg text-center"><%= I18n.t :"register.login_content" %></p>
       <a href="<%= login_url(locale: I18n.locale)%>" class="btn btn-block btn-default "><%= I18n.t :"register.login" %></a>

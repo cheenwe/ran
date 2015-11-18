@@ -1,0 +1,10 @@
+<p>欢迎 <%= @user.name %>:</p>
+
+<p>你已经成功注册<span style="color:red;"><b><%= Setting.app_name %></b></span>的账号，请点击下面的连接激活你的账号,<%= Setting.mail_token_expire_hour %>小时内有效.</p>
+
+<p><%= link_to "激活账户", edit_register_url(@user.register_token) %><p>
+
+<p><%= edit_register_url(@user.register_token) %></p>
+
+<p>如果你没有注册，可以忽略这封邮件 。</p>
+

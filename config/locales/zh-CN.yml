@@ -69,16 +69,18 @@
     register_user: 立即注册
     welcome_register_user: "欢迎注册使用"
     submit_register: 立即注册
-    register_sccess: 用户注册成功
+    register_by_email_success: "用户注册成功,请进入%{email}按照提示进行账户激活"
     register_failure: 用户注册失败
-
     login_content: 已有账号
     login: 返回登陆
     name_placeholder: 输入用户名
     email_placeholder: 输入邮箱
     password_placeholder: 输入密码
+    register_verified_successfully: 用户激活成功
+    register_verified_again: 用户已激活 请直接登陆
+    captcha_code_error: 验证码错误
 
-  sessions:
+  session:
     welcome_login: 欢迎登陆
     name_placeholder: 请输入用户名或邮箱
     password_placeholder: 请输入密码
@@ -87,11 +89,11 @@
     submit_login: 登陆系统
     register_content: 没有账号？
     register: 注册账号
-    login_failure: 登陆失败
+    login_failure: 登陆失败，登陆名或密码不正确
     login_success: 登陆成功
 
-  password_reset:
 
+  password_reset:
     title: 重置密码
     content: 输入您的用户名后，系统会发出一封邮件到您账户的电子邮件地址，该邮件含有一个重置密码的链接。
     email: 请输入邮箱
@@ -103,6 +105,7 @@
     password_not_same: 密码不一致
     password_placeholder: 输入密码
     password_confirmation_placeholder: 输入确认密码
+    user_not_find: 链接已经失效 或 用户不存在. 请重试!
 
 
 
@@ -114,6 +117,7 @@
     welcome_title: "欢迎加入 %{app_name}"
     you_have_successfully: "你已经成功在"
     registered_an_account: "注册了账号。"
+    register_email_subject: "%{app_name} 账户激活"
 
 
 

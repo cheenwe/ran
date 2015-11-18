@@ -1,0 +1,7 @@
+<p>Dear <%= @user.name %>:</p>
+<p>Please use the following URL to activate your account ,<%= Setting.mail_token_expire_hour %>Effective hours.:</p>
+<p><%= link_to "Confirmation My Account", edit_register_url(@user.register_token) %><p>
+<p>If you can't see the connection, please copy the following connection and then open it in the browser:</p>
+<p><%= edit_register_url(@user.register_token) %></p>
+<p>If you did not submit a request to reset your password, please ignore this email. </p>
+

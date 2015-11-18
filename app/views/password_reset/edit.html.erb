@@ -7,17 +7,16 @@
 		</div>
 		<div class="panel-body">
 			<p class="text-center pv"><%= I18n.t :"password_reset.title" %></p>
-			<small class="text-center"><%= I18n.t :"password_reset.content" %> </small>
 			<%= render "shared/error_messages", target: @user %>
 			<%= notice_message %>
 			<%= simple_form_for @user, :url => { :action => 'update' }  do |f| %>
 				<div class="form-group has-feedback">
-					<%= f.password_field :password,placeholder: I18n.t(:"password_reset.password_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+					<%= f.password_field :password,placeholder: I18n.t(:"password_reset.password_placeholder"),required:"required",minLength:"6", autocomplete:"on",class:"form-control input-lg m-b" %>
 					<span class="fa fa-lock form-control-feedback text-muted"></span>
 				</div>
 
 				<div class="form-group has-feedback">
-					<%= f.password_field :password_confirmation,placeholder: I18n.t(:"password_reset.password_confirmation_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+					<%= f.password_field :password_confirmation,placeholder: I18n.t(:"password_reset.password_confirmation_placeholder"),required:"required",minLength:"6", autocomplete:"on",class:"form-control input-lg m-b" %>
 					<span class="fa fa-lock form-control-feedback text-muted"></span>
 				</div>
 				<%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block btn-lg" %>

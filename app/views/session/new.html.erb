@@ -6,19 +6,19 @@
 			</a>
 		</div>
 		<div class="panel-body">
-			<p class="text-center pv"><%= I18n.t :"sessions.welcome_login" %></p>
+			<p class="text-center pv"><%= I18n.t :"session.welcome_login" %></p>
 
-			<%= simple_form_for @user,  url: sessions_path  do |f| %>
+			<%= simple_form_for @user,  url: session_index_path  do |f| %>
 
 				<%= render "shared/error_messages", target: @user %>
 				<%= notice_message %>
 
 				<div class="form-group has-feedback">
-					<%= f.text_field :name,placeholder: I18n.t(:"sessions.name_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+					<%= f.text_field :name,placeholder: I18n.t(:"session.name_placeholder"),required:"required",minLength:"3", autocomplete:"on",class:"form-control input-lg m-b" %>
 					 <span class="fa fa-user form-control-feedback text-muted"></span>
 				</div>
 				<div class="form-group has-feedback">
-					<%= f.password_field :password,placeholder: I18n.t(:"sessions.password_placeholder"),required:"required", autocomplete:"off",class:"form-control input-lg m-b" %>
+					<%= f.password_field :password,placeholder: I18n.t(:"session.password_placeholder"),required:"required",minLength:"6", autocomplete:"off",class:"form-control input-lg m-b" %>
 					 <span class="fa fa-lock form-control-feedback text-muted"></span>
 				</div>
 
@@ -26,19 +26,19 @@
 					<div class="checkbox c-checkbox pull-left mt0">
 						<label>
 							<%= f.check_box :remember, class: "form-control" %>
-							<span class="fa fa-check"></span><%= I18n.t :"sessions.remember" %>
+							<span class="fa fa-check"></span><%= I18n.t :"session.remember" %>
 						</label>
 					</div>
 					<div class="pull-right">
-					<a href="<%= new_password_reset_path%>" class="text-muted"><%= I18n.t :"sessions.forgot_password" %> </a>
+					<a href="<%= new_password_reset_path%>" class="text-muted"><%= I18n.t :"session.forgot_password" %> </a>
 					</div>
 				</div>
 
-				<%= f.submit I18n.t(:"sessions.submit_login"), class: "btn btn-primary btn-block" %>
+				<%= f.submit I18n.t(:"session.submit_login"), class: "btn btn-primary btn-block" %>
 			<% end %>
 
-			<p class="pt-lg text-center"><%= I18n.t :"sessions.register_content" %></p>
-			<a href="<%= register_url(locale: I18n.locale)%>" class="btn btn-block btn-default"><%= I18n.t :"sessions.register" %></a>
+			<p class="pt-lg text-center"><%= I18n.t :"session.register_content" %></p>
+			<a href="<%= register_url(locale: I18n.locale)%>" class="btn btn-block btn-default"><%= I18n.t :"session.register" %></a>
 
 		</div>
 	</div>

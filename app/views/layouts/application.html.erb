@@ -15,7 +15,6 @@
 <body>
 
 	<div class="wrapper">
-
 		<% if signed_in? %>
 			<header class="topnavbar-wrapper">
 				<%#= render partial: "layouts/navbar" %>
@@ -38,7 +37,7 @@
 			</footer>
 		<% else %>
 
-			<div class="pull-right">
+			<div class="pull-right visible-md-block visible-lg-block">
 				<div class="btn-group">
 					<button type="button" data-toggle="dropdown" class="btn btn-default" aria-expanded="false">Language/语言</button>
 					<ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">

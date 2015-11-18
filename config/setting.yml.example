@@ -2,7 +2,7 @@ defaults: &defaults
   app_name: "Ran"
   domain: "192.168.10.5:3000"
   admin_emails: "admin@qq.com"
-  reset_password_expire_hour: 3
+  mail_token_expire_hour: 3
 
 development:
   <<: *defaults

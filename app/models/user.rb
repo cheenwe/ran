@@ -4,32 +4,26 @@ class  User < ActiveRecord::Base
 	include ActiveUUID::UUID
 	# natural_key :id
 
-	attr_accessor  :remember, :not_clear_reset_password_token
-
-	# validates_uniqueness_of :email, :name, :phone
+	attr_accessor  :remember, :captcha
 
 	# validates_confirmation_of :password #验证变量xxx和xxx_confirmation
 
 	validates_presence_of :name, :if => :new_record?
 	validates_presence_of :email
 
+	validates_length_of :password, :in => 6..30, :allow_blank => true
 
-	validates :email,
-	          format: { with: VALID_EMAIL_ADDRESS },
-	          allow_nil: true,
-	          allow_blank: true
+	validates_presence_of :name, :unless => :new_record?
+	validates_presence_of :email
+	validates_uniqueness_of :name, :unless => :new_record? && :name_is_blank?
+	validates_uniqueness_of :email
+	validates_format_of :email, :with => VALID_EMAIL_ADDRESS
+	validates_uniqueness_of :phone, :allow_blank => true
 
-	validates :password,
-	          length: { minimum: 5 },
-	          allow_nil: true
 
-	validates :phone,
-	          uniqueness: true, #{ scope: :site_id },
-	          allow_nil: true
 
-	validates :name,
-	          uniqueness: true, #{ scope: :site_id },
-	          allow_nil: true
+
+	scope :verified, -> { where(verified: true) }
 
 	before_create :set_register_token
 
@@ -43,19 +37,8 @@ class  User < ActiveRecord::Base
 		save(:validate => false)
 	end
 
-
-	before_save :clear_reset_password_token, :unless => :not_clear_reset_password_token
-	def refresh_reset_password_token
-		self.reset_password_token = SecureRandom.hex(24)
-		self.reset_password_sent_at = Time.now
-		self.not_clear_reset_password_token = true
-		save(:validate => false)
+	def name_is_blank?
+		self.name.blank?
 	end
-
-	def clear_reset_password_token
-		self.reset_password_token = nil
-		self.reset_password_sent_at = nil
-	end
-
 
 end

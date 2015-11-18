@@ -13,7 +13,7 @@
         <%= render "shared/error_messages", target: @user %>
         <%= notice_message %>
         <div class="form-group has-feedback">
-          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required", autocomplete:"on",class:"form-control input-lg m-b" %>
+          <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required",type:"email", autocomplete:"on",class:"form-control input-lg m-b" %>
            <span class="fa fa-envelope form-control-feedback text-muted"></span>
         </div>
         <%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block btn-lg" %>

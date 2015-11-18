@@ -14,7 +14,7 @@ class PasswordResetController < ApplicationController
     else
       @user.refresh_reset_password_token
       UserMailer.password_reset_email(@user).deliver_now
-      redirect_to new_password_reset_url, :notice => "#{t('password_reset.instruction_email_sent', email: user_params[:email])}"
+      redirect_to login_url, :notice => "#{t('password_reset.instruction_email_sent', email: user_params[:email])}"
     end
 
   end
@@ -25,14 +25,9 @@ class PasswordResetController < ApplicationController
 
   # Note: @user is set in require_valid_token
   def update
-    puts user_params[:password]
-    puts params[:password_confirmation]
-    puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>."
     if user_params[:password] !=user_params[:password_confirmation]
       redirect_to edit_password_reset_url(params[:id]), :alert=> t("password_reset.password_not_same")
-        puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...not same"
     else
-        puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.."
       if @user.update_attributes(user_params)
         redirect_to new_session_url, :notice => t("password_reset.password_reset_successfully")
       else
@@ -46,11 +41,11 @@ class PasswordResetController < ApplicationController
   def require_valid_token
     @user = User.find_by_reset_password_token(params[:id])
     if @user.nil?
-      redirect_to(new_password_reset_url, alert: t(":user.user_not_find"))
-    elsif (@user.reset_password_sent_at + Setting.reset_password_expire_hour.hour) < Time.now
+      redirect_to new_password_reset_url, :alert =>t("password_reset.user_not_find")
+    elsif (@user.reset_password_sent_at + Setting.mail_token_expire_hour.hour) < Time.now
       redirect_to new_password_reset_url, :alert => t("password_reset.reset_url_expired")
     else
-
+      #redirect_to new_password_reset_url, :alert => t("other_error")
     end
   end
 

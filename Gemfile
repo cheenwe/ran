@@ -21,7 +21,12 @@ gem 'simple_form'
 
 gem 'rails-i18n'
 gem 'http_accept_language'
-gem 'settingslogic'
+gem 'settingslogic' #自定义配置置
+gem 'rucaptcha' #图片验证码
+	# Ubuntu
+	# sudo apt-get install imagemagick
+	# Mac OS X
+	# brew install imagemagick ghostscript
 
 group :development, :test do
 

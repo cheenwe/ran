@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  mount RuCaptcha::Engine => "/rucaptcha"
 
-  get '/login', :to => 'sessions#new', :as => 'login'
-  delete '/logout', :to => 'sessions#destroy'
+  get '/login', :to => 'session#new', :as => 'login'
+  delete '/logout', :to => 'session#destroy'
   get '/register', :to => 'register#new'
 
-    resources :sessions, :only => [:new, :create, :destroy]
+    resources :session, :only => [:new, :create, :destroy]
 
     resources :register, :only => [:new, :create, :edit, :update]
     resources :password_reset, :only =>  [:new, :create, :edit, :update]
