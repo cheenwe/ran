@@ -9,17 +9,14 @@
  */
 
 
-
 /* [Table of contents]
 
 1. Variables
 2. Bootstrap
 3. Utilities
- */
 
+*/
 
-// themes
-@import "themes/theme-1";
 // Override bootstrap variables
 @import "app/variables";
 
@@ -28,9 +25,13 @@
 
 // Global definition of media queries
 @import "app/media-queries";
+
 // Utilities
 @import "app/utils-definitions";
 @import "app/utils";
+
+// reset
+@import "app/bootstrap-reset";
 
 // Panels
 @import "app/panels";
@@ -49,7 +50,20 @@
 // top-navbar
 @import "app/top-navbar";
 
-
 // sidebar
 @import "app/sidebar";
 
+// offsidebar
+@import "app/offsidebar";
+
+// user-block
+@import "app/user-block";
+
+// themes
+@import "themes/theme-1";
+
+// themes
+@import "app/chart-flot";
+
+// timeline
+@import "app/timeline";

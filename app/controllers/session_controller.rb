@@ -33,6 +33,8 @@ class SessionController < ApplicationController
 		session[:user_id] = @user.id
 		redirect_url = session.delete(:return_to) || users_url
 		redirect_to redirect_url, :only_path => true, :notice => t("session.login_success")
+
+		@user.update_tracked_fields(request)
 	end
 
 	def login_auth_fail

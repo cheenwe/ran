@@ -1,48 +1,57 @@
+<div class="content-heading">
+	<ul class="page-breadcrumb breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>
+			<a href="/">Home</a>
+		</li>
+		<li><a href="/users">Users</a></li>
+	</ul>
+</div>
 
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Api V1 Users</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Passwd salt</th>
-      <th>Encrypted password</th>
-      <th>Remember token</th>
-      <th>Reset password token</th>
-      <th>Reset password sent at</th>
-      <th>Register token</th>
-      <th>Register token sent at</th>
-      <th>Sign in count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Passwd salt</th>
+			<th>Encrypted password</th>
+			<th>Remember token</th>
+			<th>Reset password token</th>
+			<th>Reset password sent at</th>
+			<th>Register token</th>
+			<th>Register token sent at</th>
+			<th>Sign in count</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.name %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password_salt %></td>
-        <td><%= user.encrypted_password %></td>
-        <td><%= user.remember_token %></td>
-        <td><%= user.reset_password_token %></td>
-        <td><%= user.reset_password_sent_at %></td>
-        <td><%= user.register_token %></td>
-        <td><%= user.register_token_sent_at %></td>
-        <td><%= user.sign_in_count %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.id %></td>
+				<td><%= user.name %></td>
+				<td><%= user.phone %></td>
+				<td><%= user.email %></td>
+				<td><%= user.password_salt %></td>
+				<td><%= user.encrypted_password %></td>
+				<td><%= user.remember_token %></td>
+				<td><%= user.reset_password_token %></td>
+				<td><%= user.reset_password_sent_at %></td>
+				<td><%= user.register_token %></td>
+				<td><%= user.register_token_sent_at %></td>
+				<td><%= user.sign_in_count %></td>
+				<td><%= link_to 'Show', user %></td>
+				<td><%= link_to 'Edit', edit_user_path(user) %></td>
+				<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
 <br>

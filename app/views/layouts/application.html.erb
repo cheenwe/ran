@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
 	<div class="wrapper">
 		<% if signed_in? %>
 			<header class="topnavbar-wrapper">
@@ -35,6 +34,7 @@
 		<% else %>
 
 			<%= render "layouts/shared/language"%>
+
 			<%#= notice_message %>
 			<%= yield %>
 		<% end %>

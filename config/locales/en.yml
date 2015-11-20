@@ -129,6 +129,8 @@ en:
     password_confirmation_placeholder: Enter Password Again
     register_email_subject: Activate account
 
+  users: Users
+  dashboard: Dashboard
   # general
   back: Back
   save: Save

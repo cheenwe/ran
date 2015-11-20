@@ -125,7 +125,8 @@
     register_email_subject: 账户激活
 
 
-
+  users: 账户管理
+  dashboard: 仪表盘
   # general
   back: 返回
   save: 保存

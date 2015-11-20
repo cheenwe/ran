@@ -13,4 +13,16 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
+  def controller?(*controller)
+    controller.include?(params[:controller])
+  end
+
+  def action?(*action)
+    action.include?(params[:action])
+  end
+
+    def get_local_url(request, local)
+      request.url(locale: "#{local}")
+    end
+
 end

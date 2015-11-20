@@ -46,4 +46,9 @@ class  User < ActiveRecord::Base
 		verified?
 	end
 
+	def update_tracked_fields(request)
+		self.sign_in_count ||= 0
+		self.sign_in_count += 1
+		self.save
+	end
 end

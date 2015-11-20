@@ -10,7 +10,6 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = user_locale
-
     # after store current locale
     cookies[:locale] = params[:locale] if params[:locale]
   rescue I18n::InvalidLocale
@@ -18,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
 
-  helper_method :clipboard, :current_user, :signed_in?, :permitted_params
+  helper_method :clipboard, :current_user, :signed_in?
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -26,10 +25,6 @@ class ApplicationController < ActionController::Base
 
   def signed_in?
     !!current_user
-  end
-
-  def permitted_params
-    @permitted_params ||= PermittedParams.new(params, current_user)
   end
 
   def authenticate_login
@@ -55,7 +50,6 @@ class ApplicationController < ActionController::Base
     session[:return_to] = nil
   end
 
-
   private
 
     def user_locale
@@ -65,4 +59,5 @@ class ApplicationController < ActionController::Base
     def http_head_locale
       http_accept_language.language_region_compatible_from(I18n.available_locales)
     end
+
 end

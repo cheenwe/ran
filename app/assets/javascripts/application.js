@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap/js/bootstrap.min
 //= require parsley
+//= require animo.min
+//= require screenfull.min
+
 
 
 //= require_tree ./ran/

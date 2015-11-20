@@ -1,7 +1,7 @@
 defaults: &defaults
   app_name: "Ran"
   domain: "192.168.10.5:3000"
-  admin_emails: "admin@qq.com"
+  admin_email: "cxhyun@163.com"
   mail_token_expire_hour: 3
   max_login_failure_attempts: 5
 

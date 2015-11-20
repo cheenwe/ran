@@ -1,6 +1,15 @@
 namespace :db do
 	desc 'init app'
 	task :init do
+		if Rails.env.development?
+		  %w(database email  setting).each do |fname|
+		    filename = "config/#{fname}.yml"
+		    next if File.exist?(Rails.root.join(filename))
+		    FileUtils.cp(Rails.root.join("#{filename}.example"), Rails.root.join(filename))
+		    puts "#{filename} created succesfully."
+		  end
+		end
+
 		puts 'Creating database... '
 		system 'bundle exec rake db:create'
 		system 'bundle exec rake db:migrate'
@@ -22,6 +31,7 @@ namespace :db do
 			puts "\n"
 			puts 'config/secrets.yml already exists'
 		end
+
 
 		puts "\n"
 		puts 'init succesfully.'
