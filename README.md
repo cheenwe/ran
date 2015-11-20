@@ -4,14 +4,14 @@
 
 ## Usage:
 git clone git@github.com:cheenwe/ran.git
-cd ran 
-bundle install 
-rake db:init 
+cd ran
+bundle install
+rake db:init
 rails s
 
 
 ## Website:
-https://obscure-inlet-4468.herokuapp.com/
+https://cheenwe.cn
 
 ## Bug:
 https://github.com/cheenwe/ran/issues/new
@@ -21,4 +21,3 @@ https://github.com/cheenwe/ran/issues/new
 License
 -------
 MIT License
- 

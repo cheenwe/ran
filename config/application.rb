@@ -17,6 +17,13 @@ Bundler.require(*Rails.groups)
 
 module Ran
   class Application < Rails::Application
+
+    %w(database email  setting secrets).each do |fname|
+      filename = "config/#{fname}.yml"
+      next if File.exist?(Rails.root.join(filename))
+      FileUtils.cp(Rails.root.join("#{filename}.example"), Rails.root.join(filename))
+      puts "#{filename} created succesfully."
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

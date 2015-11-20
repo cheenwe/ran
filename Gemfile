@@ -1,8 +1,9 @@
-if ENV['TRAVIS']
-  source 'https://rubygems.org'
-else
-  source 'https://ruby.taobao.org'
-end
+# if ENV['TRAVIS']
+#   source 'https://rubygems.org'
+# else
+#   source 'https://ruby.taobao.org'
+# end
+source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 gem 'sass-rails', '~> 5.0'

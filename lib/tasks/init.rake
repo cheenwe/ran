@@ -1,41 +1,41 @@
 namespace :db do
 	desc 'init app'
 	task :init do
-		if Rails.env.development?
-		  %w(database email  setting).each do |fname|
-		    filename = "config/#{fname}.yml"
-		    next if File.exist?(Rails.root.join(filename))
-		    FileUtils.cp(Rails.root.join("#{filename}.example"), Rails.root.join(filename))
-		    puts "#{filename} created succesfully."
-		  end
-		end
+		# # if Rails.env.development?
+		#   %w(database email  setting secrets).each do |fname|
+		#     filename = "config/#{fname}.yml"
+		#     next if File.exist?(Rails.root.join(filename))
+		#     FileUtils.cp(Rails.root.join("#{filename}.example"), Rails.root.join(filename))
+		#     puts "#{filename} created succesfully."
+		#   end
+		# # end
 
 		puts 'Creating database... '
 		system 'bundle exec rake db:create'
 		system 'bundle exec rake db:migrate'
 
-		puts "\n"
-		print 'Creating config/secrets.yml... '
-		secret_token = Rails.root.join('config', 'secrets.yml')
+		# puts "\n"
+		# print 'Creating config/secrets.yml... '
+		# secret_token = Rails.root.join('config', 'secrets.yml')
 
-		# Only create if it doesn't exit yet
-		if !File.exists?(secret_token)
-			File.open(secret_token, 'w') do |f|
-				%w{development test production}.each do |env|
-					f.write "#{env}:\n"
-					f.write "  secret_key_base: #{SecureRandom.hex(64)}\n"
-				end
-			end
-			puts 'OK'
-		else
-			puts "\n"
-			puts 'config/secrets.yml already exists'
-		end
+		# # Only create if it doesn't exit yet
+		# if !File.exists?(secret_token)
+		# 	File.open(secret_token, 'w') do |f|
+		# 		%w{development test production}.each do |env|
+		# 			f.write "#{env}:\n"
+		# 			f.write "  secret_key_base: #{SecureRandom.hex(64)}\n"
+		# 		end
+		# 	end
+		# 	puts 'OK'
+		# else
+		# 	puts "\n"
+		# 	puts 'config/secrets.yml already exists'
+		# end
 
 
-		puts "\n"
-		puts 'init succesfully.'
-		puts "\n"
+		# puts "\n"
+		# puts 'init succesfully.'
+		# puts "\n"
 	end
 	desc 'create users'
 	task :load_demo_data => :environment do
