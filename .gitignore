@@ -12,9 +12,10 @@ uploads/*
 test/
 wiki/
 public/uploads/*
+public/assets/*
 config/database.yml
-# config/email.yml
-# config/setting.yml
+config/email.yml
+config/setting.yml
 config/secrets.yml
 config/deploy.rb
 db/data.yml
