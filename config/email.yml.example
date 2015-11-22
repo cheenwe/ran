@@ -7,13 +7,13 @@ production:
     username: demo
     password: demo
   smtp:
-    address: localhost
-    domain: example.com
-    probably not needed...
+    address: smtp.163.com
+    domain: mail.163.com
+    # probably not needed...
     port: 25
     authentication: login
-    user_name: user_for_smtp_auth@example.com
-    password: password_for_smtp_auth
+    user_name: cxhyun@163.com
+    password: wei0.0
 
 development:
   pop:
@@ -23,7 +23,8 @@ development:
   smtp:
     address: smtp.163.com
     domain: mail.163.com
+    # probably not needed...
     port: 25
     authentication: login
-    user_name: cheenwe@163.com
-    password: 199101212
+    user_name: cxhyun@163.com
+    password: wei0.0
