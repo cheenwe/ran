@@ -1,0 +1,173 @@
+
+
+  create_table "queries", force: :cascade do |t|
+    t.integer "project_id",    limit: 4
+    t.string  "name",          limit: 255,   default: "", null: false
+    t.text    "filters",       limit: 65535
+    t.integer "user_id",       limit: 4,     default: 0,  null: false
+    t.text    "column_names",  limit: 65535
+    t.text    "sort_criteria", limit: 65535
+    t.string  "group_by",      limit: 255
+    t.string  "type",          limit: 255
+    t.integer "visibility",    limit: 4,     default: 0
+    t.text    "options",       limit: 65535
+  end
+
+rails g scaffold queries name:string  filters:text user:references type:string open:boolean
+
+
+  label_equals: 等于
+  label_not_equals: 不等于
+  label_in_less_than: 剩余天数小于
+  label_in_more_than: 剩余天数大于
+  label_greater_or_equal: '>='
+  label_less_or_equal: '<='
+
+  label_contains: 包含
+  label_not_contains: 不包含
+
+
+    {"Person" => "个人", "Public" => "公众", "Companion" => "同路" }[type] if  type
+
+"cont" => "contains",
+"not_cont" => "not_contains",
+"eq" => "equals",
+"not_eq" => "not_equals",
+"lt" => "less than",
+"gt" => "greater than",
+"lteq" => "less than or equal to",
+"gteq" => "greater  than or equal to",
+"start" => "starts with",
+"not_start" => "not starts with",
+"end" => "ends with",
+"not_end" => "not ends with",
+"null" => "null",
+"not_null" => "not null",
+
+
+
+
+eq (equals)
+
+The eq predicate returns all records where a field is exactly equal to a given value:
+
+    >> User.ransack(first_name_eq: 'Ryan').result.to_sql
+    => SELECT "users".* FROM "users" WHERE "users"."first_name" = 'Ryan'
+Opposite: not_eq
+
+matches
+
+The matches predicate returns all records where a field is like a given value:
+
+    >> User.ransack(first_name_matches: 'Ryan').result.to_sql
+    => SELECT "users".* FROM "users" WHERE ("users"."first_name" LIKE 'Ryan')
+On Postgres, the case-insensitive ILIKE will be used.
+
+Opposite: does_not_match
+
+Note: If you want to do wildcard matching, you may be looking for the cont/not_cont predicates instead.
+
+lt (less than)
+
+The lt predicate returns all records where a field is less than a given value:
+
+    >> User.ransack(age_lt: 25).result.to_sql
+    => SELECT "users".* FROM "users" WHERE ("users"."age" < 25)
+Opposite: gt (greater than)
+
+lteq (less than or equal to)
+
+The lteq predicate returns all records where a field is less than or equal to a given value:
+
+    >> User.ransack(age_lteq: 25).result.to_sql
+    => SELECT "users".* FROM "users" WHERE ("users"."age" <= 25)
+Opposite: gteq (greater than or equal to)
+
+in
+
+The in predicate returns all records where a field is within a specified list:
+
+    >> User.ransack(age_in: 20..25).result.to_sql
+    => SELECT "users".* FROM "users" WHERE "users"."age" IN (20, 21, 22, 23, 24, 25)
+It can also take an array:
+
+    >> User.ransack(age_in: [20, 21, 22, 23, 24, 25]).result.to_sql
+    => SELECT "users".* FROM "users" WHERE "users"."age" IN (20, 21, 22, 23, 24, 25)
+Opposite: not_in
+
+cont
+
+The cont predicate returns all records where a field contains a given value:
+
+    >> User.ransack(first_name_cont: 'Rya').result.to_sql
+    => SELECT "users".* FROM "users"  WHERE ("users"."first_name" LIKE '%Rya%')
+Opposite: not_cont
+
+cont_any (contains any)
+
+The cont_any predicate returns all records where a field contains any of given values:
+
+    >> User.ransack(first_name_cont_any: %w(Rya Lis)).result.to_sql
+    => SELECT "users".* FROM "users"  WHERE (("users"."first_name" LIKE '%Rya%' OR "users"."first_name" LIKE '%Lis%'))
+Opposite: not_cont_any
+
+i_cont (work-in-progress, don't use yet)
+
+The i_cont case-insensitive predicate returns all records where a field contains a given value and ignores case:
+
+    >> User.ransack(first_name_i_cont: 'Rya').result.to_sql
+    => SELECT "users".* FROM "users"  WHERE (UPPER("users"."first_name") LIKE UPPER('%Rya%'))
+Opposite: i_not_cont
+
+start (starts with)
+
+The start predicate returns all records where a field begins with a given value:
+
+    >> User.ransack(first_name_start: 'Rya').result.to_sql
+    => SELECT "users".* FROM "users"  WHERE ("users"."first_name" LIKE 'Rya%')
+Opposite: not_start
+
+end (ends with)
+
+The end predicate returns all records where a field ends with a given value:
+
+    >> User.ransack(first_name_end: 'yan').result.to_sql
+    => SELECT "users".* FROM "users"  WHERE ("users"."first_name" LIKE '%yan')
+Opposite: not_end
+
+true
+
+The true predicate returns all records where a field is true. The '1' indicates that to Ransack that you indeed want to check the truthiness of this field. The other truthy values are 'true', 'TRUE', 't' or 'T'.
+
+    >> User.ransack(awesome_true: '1').result.to_sql
+    => SELECT "users".* FROM "users"  WHERE ("users"."awesome" = 't')
+Note: different database systems use different values to represent truth. In the above example, we are using SQLite3.
+
+Opposite: not_true
+
+false
+
+The false predicate returns all records where a field is false.
+
+    >> User.ransack(awesome_false: '1').result.to_sql
+    => SELECT "users".* FROM "users"  WHERE ("users"."awesome" = 'f')
+Opposite: not_false
+
+Note: the false predicate may be considered the opposite of the true predicate if the field does not contain null values. Otherwise, use not_false.
+
+present
+
+The present predicate returns all records where a field is present (not null and not a blank string).
+
+    >> User.ransack(first_name_present: '1')
+    => SELECT "users".* FROM "users"  WHERE (("users"."first_name" IS NOT NULL AND "users"."first_name" != ''))
+Opposite: blank
+
+null
+
+The null predicate returns all records where a field is null:
+
+    >> User.ransack(first_name_null: 1).result.to_sql
+    => SELECT "users".* FROM "users"  WHERE "users"."first_name" IS NULL
+Opposite: not_null
+Status API Training Shop Blog About Pricing

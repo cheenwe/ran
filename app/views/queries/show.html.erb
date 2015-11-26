@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @query.name %>
+</p>
+
+<p>
+  <strong>Filters:</strong>
+  <%= @query.filters %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @query.user %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @query.type %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @query.open %>
+</p>
+
+<%= link_to 'Edit', edit_query_path(@query) %> |
+<%= link_to 'Back', queries_path %>

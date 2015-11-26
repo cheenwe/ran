@@ -21,7 +21,7 @@ config/deploy.rb
 db/data.yml
 db/schema.rb
 /nbproject
-.idea/
+#.idea/
 current
 releases/
 repo/

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :queries
 	mount RuCaptcha::Engine => "/rucaptcha"
 
 	get '/login', :to => 'session#new', :as => 'login'
