@@ -123,6 +123,21 @@
     you_have_successfully: 你已经成功注册账号
     registered_an_account: 注册了账号
     register_email_subject: 账户激活
+  query:
+    cont: "包含"
+    not_contains: "不包含"
+    equals: "等于"
+    not_equals: "不等于"
+    less_than: "小于"
+    greater_then: "大于"
+    less_than_or_equal_to: "小于等于"
+    greater_than_or_equal_to: "大于等于"
+    start_with: "开头包含"
+    not_start_with: "开始不包含"
+    end_with: "结束包含"
+    not_end_with: "结束不包含"
+    is_null: "为空"
+    not_null: "不为空"
 
 
   users: 账户管理

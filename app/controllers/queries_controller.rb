@@ -13,6 +13,7 @@ class QueriesController < ApplicationController
   # GET /queries/new
   def new
     @query = Query.new
+    # @query.records.build
   end
 
   # GET /queries/1/edit
@@ -22,6 +23,8 @@ class QueriesController < ApplicationController
   # POST /queries
   def create
     @query = Query.new(query_params)
+
+    @query.build_from_params
 
     if @query.save
       redirect_to @query, notice: 'Query was successfully created.'

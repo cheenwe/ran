@@ -28,3 +28,17 @@ development:
     authentication: login
     user_name: cxhyun@163.com
     password: wei0.0
+
+test:
+  pop:
+    host: localhost
+    username: demo
+    password: demo
+  smtp:
+    address: smtp.163.com
+    domain: mail.163.com
+    # probably not needed...
+    port: 25
+    authentication: login
+    user_name: cxhyun@163.com
+    password: wei0.0

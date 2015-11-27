@@ -12,8 +12,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
-
-
 gem 'ransack'
 gem 'will_paginate'
 gem 'sidekiq'
@@ -35,13 +33,15 @@ group :development, :test do
   # gem "better_errors"
   gem "pry-rails"
   gem 'sqlite3'
-  gem 'faker'
+  # gem 'faker'
   #生成假数据，如姓名，地址和电话号码
 
   gem 'cucumber-rails', :require => false
-  gem 'spork', '~> 1.0rc'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  # gem 'simplecov', :require => false #代码覆盖率测试
+  # gem 'spork', '~> 1.0rc'
+  # gem 'capybara'
 end
 
 group :doc do

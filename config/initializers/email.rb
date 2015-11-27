@@ -1,5 +1,6 @@
 begin
   settings = YAML::load_file(File.dirname(__FILE__) + '/../email.yml')[Rails.env]['smtp']
+  puts settings
 rescue
   puts "==============error=============="
   puts "===please config your email ========"

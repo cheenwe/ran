@@ -129,6 +129,23 @@ en:
     password_confirmation_placeholder: Enter Password Again
     register_email_subject: Activate account
 
+  query:
+    cont: "Cont"
+    not_contains: "Not Contains"
+    equals: "Equals"
+    not_equals: "Not Equals"
+    less_than: "Less Than"
+    greater_than: "Greater Than"
+    less_than_or_equal_to: "Less Than Or Equal To"
+    greater_than_or_equal_to: "Greater Than Or Equal To"
+    start_with: "Start With"
+    not_start_with: "Not Start With"
+    end_with: "End With"
+    not_end_with: "Not  End With"
+    is_null: "Null"
+    not_null: "Not null"
+
+
   users: Users
   dashboard: Dashboard
   # general

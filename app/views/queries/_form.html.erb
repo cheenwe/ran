@@ -1,15 +1,21 @@
 <%= simple_form_for(@query) do |f| %>
-  <%= f.error_notification %>
+	<%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :filters %>
-    <%= f.association :user %>
-    <%= f.input :type %>
-    <%= f.input :open %>
-  </div>
+	<div class="form-inputs">
+		<%= f.input :name %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+		<%= f.object.records.each do |filter| %>
+			<%= f.input :feild %>
+			<%= f.select :operator, Query.sign.map { |r| [r[:name], r[:value]] }, include_blank: true %>
+			<%= f.input :value %>
+		<% end %>
+
+	<%= f.select :user_id, User.all.map { |r| [r.name, r.id] }, include_blank: true %>
+		<%= f.input :type %>
+		<%= f.input :open %>
+	</div>
+
+	<div class="form-actions">
+		<%= f.button :submit %>
+	</div>
 <% end %>
