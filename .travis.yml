@@ -8,6 +8,6 @@ rvm:
 before_script:
   - cp config/setting.yml.example config/setting.yml
   - cp config/email.yml.example config/email.yml
-  - cp config/secrets.yml.default config/secrets.yml
+  - cp config/secrets.yml.example config/secrets.yml
 
 # script: RAILS_ENV=test bundle exec rake
