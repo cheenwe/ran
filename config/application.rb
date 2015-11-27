@@ -17,8 +17,8 @@ Bundler.require(*Rails.groups)
 
 module Ran
   class Application < Rails::Application
-    # %w(database email  setting secrets).each do |fname|
-    %w(email  setting secrets).each do |fname|
+    %w(database email  setting secrets).each do |fname|
+    # %w(email  setting secrets).each do |fname|
       filename = "config/#{fname}.yml"
       next if File.exist?(Rails.root.join(filename))
       FileUtils.cp(Rails.root.join("#{filename}.example"), Rails.root.join(filename))
