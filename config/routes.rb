@@ -17,6 +17,11 @@ Rails.application.routes.draw do
 
 
 
+
+	get 'plugs/icons'
+	get 'plugs/animations'
+	get 'plugs/animations'
+
        #-----------------for api
 
 	namespace :api do

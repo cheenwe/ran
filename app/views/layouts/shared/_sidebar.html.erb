@@ -36,49 +36,30 @@
 				</a>
 			</li>
 
-			<li class="<%= 'active' if controller?('multilevel') %>">
-				<a href="#multilevel" title="Multilevel" data-toggle="collapse">
-					 <em class="fa fa-folder-open-o"></em>
-					 <span>Multilevel</span>
+
+			<li class="<%= 'active' if controller?('plugs')%>">
+				<a href="#plugs" title="<%= t("plugs") %>" data-toggle="collapse">
+					<em class="fa fa-folder-open-o"></em>
+					<span><%= t("plugs") %></span>
 				</a>
-				<ul id="multilevel" class="nav sidebar-subnav collapse">
-					<li class="sidebar-subnav-header">Multilevel</li>
-						<li class="<%= 'active' if controller?('multilevel') && action?('level1') %>">
-						<a href="#level1" title="Level 1" data-toggle="collapse">
-							 <span>Level 1</span>
-						</a>
-						<ul id="level1" class="nav sidebar-subnav collapse">
-							<li class="sidebar-subnav-header">Level 1</li>
-							<li class="<%= 'active' if controller?('multilevel') && action?('level1') %>">
-								<a href="/multilevel/level1" title="Level1 Item">
-									<span>Level1 Item</span>
-								</a>
-							</li>
-							<li class="active">
-								<a href="#level2" title="Level 2" data-toggle="collapse">
-									<span>Level 2</span>
-								</a>
-								<ul id="level2" class="nav sidebar-subnav collapse">
-									<li class="sidebar-subnav-header">Level 2</li>
-									<li class="active">
-										<a href="#level3" title="Level 3" data-toggle="collapse">
-											 <span>Level 3</span>
-										</a>
-										<ul id="level3" class="nav sidebar-subnav collapse">
-											<li class="sidebar-subnav-header">Level 3</li>
-											<li class="active">
-												<a href="/multilevel/level3" title="Level3 Item">
-													<span>Level3 Item</span>
-												</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
+				<ul id="plugs" class="nav sidebar-subnav collapse">
+				<li class="sidebar-subnav-header"><%= t("plugs") %></li>
+				<li class="<%= 'active' if controller?('plugs') && action?('animations') %>">
+					<a href="/plugs/animations" title="<%= t("animations")%>">
+						<em class="fa fa-bolt"></em>
+						<span><%= t("animations")%></span>
+					</a>
+				</li>
+				<li class="<%= 'active' if controller?('plugs') && action?('icons') %>">
+					<a href="/plugs/icons" title="<%= t("icons")%>">
+						<em class="fa fa-plus-square"></em>
+						<span><%= t("icons")%></span>
+					</a>
+				</li>
 				</ul>
 			</li>
+
+
 		</ul>
 	</nav>
 </div>

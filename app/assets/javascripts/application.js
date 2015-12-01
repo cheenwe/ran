@@ -16,6 +16,7 @@
 //= require parsley
 //= require animo.min
 //= require screenfull.min
+//= require jquery.storageapi
 
 
 

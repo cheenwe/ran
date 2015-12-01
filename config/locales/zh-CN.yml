@@ -129,7 +129,7 @@
     equals: "等于"
     not_equals: "不等于"
     less_than: "小于"
-    greater_then: "大于"
+    greater_than: "大于"
     less_than_or_equal_to: "小于等于"
     greater_than_or_equal_to: "大于等于"
     start_with: "开头包含"
@@ -142,7 +142,11 @@
 
   users: 账户管理
   dashboard: 仪表盘
+  icons: 图标
+  animations: Css 动画
+  plugs: 插件
   # general
+  add: 新建
   back: 返回
   save: 保存
   other_error: 服务器飞走了.... 再试一下可否?

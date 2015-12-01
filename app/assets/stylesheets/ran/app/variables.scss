@@ -814,19 +814,65 @@ $badge-border-radius:         10px;
 
 
 //== Breadcrumbs
-//
-//##
 
-$breadcrumb-padding-vertical:   12px;
-$breadcrumb-padding-horizontal: 15px;
-//** Breadcrumb background color
-$breadcrumb-bg:                 #fafafa;
-//** Breadcrumb text color
-$breadcrumb-color:              #c1c2c3;
-//** Text color of current page in the breadcrumb
-$breadcrumb-active-color:       $text-color;
-//** Textual separator for between breadcrumb elements
-$breadcrumb-separator:          ">";
+/***
+Page title
+***/
+.page-title {
+  padding: 0px;
+  font-size: 30px;
+  letter-spacing: -1px;
+  display: block;
+  color: #666;
+  margin: 0px 0px 15px 0px;
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.page-title small {
+  font-size: 14px;
+  letter-spacing: 0px;
+  font-weight: 300;
+  color: #888;
+}
+
+/***
+Page breadcrumb
+***/
+
+.ie8 .row .page-breadcrumb.breadcrumb > li {
+  margin-right: 1px;
+}
+
+.page-breadcrumb.breadcrumb {
+  /* -webkit-border-radius: 0px; */
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  box-shadow: none;
+  padding-right: 30px;
+  padding-left: 8px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  border:0px !important;
+  background-color: #eee;
+}
+
+.page-breadcrumb.breadcrumb > li > a,
+.page-breadcrumb.breadcrumb > li > i,
+.page-breadcrumb.breadcrumb > li > span {
+  color: #333;
+  font-size: 14px;
+  text-shadow:none;
+}
+
+.page-breadcrumb.breadcrumb > li > i {
+  color: #666;
+}
+
+.page-breadcrumb.breadcrumb > li+li:before {
+  display: none;
+}
+
 
 
 //== Carousel

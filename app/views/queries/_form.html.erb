@@ -4,10 +4,17 @@
 	<div class="form-inputs">
 		<%= f.input :name %>
 
-		<%= f.object.records.each do |filter| %>
-			<%= f.input :feild %>
-			<%= f.select :operator, Query.sign.map { |r| [r[:name], r[:value]] }, include_blank: true %>
-			<%= f.input :value %>
+<!-- 		<%#= f.object.records.each do |filter| %>
+			<%##= filter.select :operator, Query.sign.map { |r| [r[:name], r[:value]] }, include_blank: true %>
+			<%#= filter.input :value %>
+		<%# end %> -->
+
+		<%= f.fields_for :records do |filter| %>
+		  	<%= filter.text_field :field %>
+
+			<%= filter.select :operator, Query.sign.map { |r| [r[:name], r[:value]] }%>
+
+			<%= filter.input :value %>
 		<% end %>
 
 	<%= f.select :user_id, User.all.map { |r| [r.name, r.id] }, include_blank: true %>

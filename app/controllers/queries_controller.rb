@@ -23,10 +23,11 @@ class QueriesController < ApplicationController
   # POST /queries
   def create
     @query = Query.new(query_params)
-
-    @query.build_from_params
+    puts "???????/////////#{query_params}////#{params[:query][:records]}"
 
     if @query.save
+
+      @query.build_from_params(params[:query][:records])
       redirect_to @query, notice: 'Query was successfully created.'
     else
       render :new
@@ -35,7 +36,10 @@ class QueriesController < ApplicationController
 
   # PATCH/PUT /queries/1
   def update
+
     if @query.update(query_params)
+    @query.build_from_params(params[:query][:records])
+
       redirect_to @query, notice: 'Query was successfully updated.'
     else
       render :edit

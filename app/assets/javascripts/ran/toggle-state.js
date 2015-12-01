@@ -14,7 +14,6 @@
         var element = $(this),
             classname = element.data('toggleState'),
             noPersist = (element.attr('data-no-persist') !== undefined);
-
         if(classname) {
           if( $body.hasClass(classname) ) {
             $body.removeClass(classname);

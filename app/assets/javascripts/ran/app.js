@@ -7,7 +7,7 @@
   $(function(){
 
     var $body = $('body');
-    // new StateToggler().restoreState( $body );
+    new StateToggler().restoreState( $body );
 
     $('#chk-fixed').prop('checked', $body.hasClass('layout-fixed') );
     $('#chk-collapsed').prop('checked', $body.hasClass('aside-collapsed') );

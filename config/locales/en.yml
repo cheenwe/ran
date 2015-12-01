@@ -148,7 +148,11 @@ en:
 
   users: Users
   dashboard: Dashboard
+  icons: Icons
+  animations: Css animations
+  plugs: Plugs
   # general
+  add: Add New
   back: Back
   save: Save
   other_error: Something wrong.... Have a try?
