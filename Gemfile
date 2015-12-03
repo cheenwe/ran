@@ -19,7 +19,7 @@ gem 'mysql2'
 gem "activeuuid"
 gem 'simple_form'
 
-gem 'rails-i18n'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'http_accept_language'
 gem 'settingslogic' #自定义配置置
 gem 'rucaptcha' #图片验证码
@@ -27,7 +27,7 @@ gem 'rucaptcha' #图片验证码
 	# sudo apt-get install imagemagick
 	# Mac OS X
 	# brew install imagemagick ghostscript
-
+gem 'qingting_api'
 group :development, :test do
 
   # gem "better_errors"

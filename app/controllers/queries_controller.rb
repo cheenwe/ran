@@ -23,7 +23,6 @@ class QueriesController < ApplicationController
   # POST /queries
   def create
     @query = Query.new(query_params)
-    puts "???????/////////#{query_params}////#{params[:query][:records]}"
 
     if @query.save
 

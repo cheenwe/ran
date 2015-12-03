@@ -5,6 +5,7 @@ defaults: &defaults
   admin_email: "cheenwe@163.com"
   mail_token_expire_hour: 3
   max_login_failure_attempts: 5
+  login_failure_lock_minute: 15
 
 development:
   <<: *defaults

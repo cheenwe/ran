@@ -1,7 +1,7 @@
 class PlugsController < ApplicationController
     def animations
     end
-    def icons
 
+    def icons
     end
 end

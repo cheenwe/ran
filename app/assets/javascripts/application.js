@@ -17,7 +17,8 @@
 //= require animo.min
 //= require screenfull.min
 //= require jquery.storageapi
-
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap
 
 
 //= require_tree ./ran/

@@ -55,11 +55,13 @@
         email: 邮箱
 
   user:
+    info: "用户管理信息..."
     email: 邮箱
     name: 用户名
     password: 密码
     password_confirmation: 确认密码
     user_not_find: 用户不存在
+    sign_in_count: 登陆次数
 
 
   register:
@@ -91,12 +93,10 @@
     register: 注册账号
     login_failure: 登陆失败，登陆名或密码不正确
     login_success: 登陆成功
-    max_login_attempts: 抱歉，您在15分钟内输入的错误密码次数超限，请在15分钟后再试。
-    not_activated_yet: 您的账号尚未激活
-    password_doesnt_match: 您的账号尚未激活
+    max_login_attempts: "抱歉,您的密码输错次数超限,请在15分钟后再试"
+    not_activated_yet: 您的账号尚未激活，请使用忘记密码激活
     password_not_match: 您输入的密码有误，请重试。
     name_not_find: 登陆名不存在
-
 
   password_reset:
     title: 重置密码
@@ -111,7 +111,6 @@
     password_placeholder: 输入密码
     password_confirmation_placeholder: 输入确认密码
     user_not_find: 链接已经失效 或 用户不存在. 请重试!
-
 
 
   mail:
@@ -140,6 +139,15 @@
     not_null: "不为空"
 
 
+  qingting_info: "蜻蜓Fm数据..."
+  qingting_categories: 点播所有分类
+  qingting_sequence: 次序
+  qingting_id: ID
+  qingting_name: 名称
+  qingting_section_id: 部分
+  qingting_type: 类型
+
+  qingting: 蜻蜓FM
   users: 账户管理
   dashboard: 仪表盘
   icons: 图标

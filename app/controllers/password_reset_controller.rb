@@ -7,14 +7,20 @@ class PasswordResetController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(user_params[:email])
-    if @user.nil?
-      redirect_to(new_password_reset_url, alert: t("user.user_not_find"))
+    if verify_rucaptcha?(@user)
+      @user = User.find_by_email(user_params[:email])
+      if @user.nil?
+        redirect_to(new_password_reset_url, alert: t("user.user_not_find"))
+      else
+        @user.refresh_reset_password_token
+        UserMailer.password_reset_email(@user).deliver_now
+        redirect_to login_url, :notice => "#{t('password_reset.instruction_email_sent', email: user_params[:email])}"
+      end
     else
-      @user.refresh_reset_password_token
-      UserMailer.password_reset_email(@user).deliver_now
-      redirect_to login_url, :notice => "#{t('password_reset.instruction_email_sent', email: user_params[:email])}"
+      redirect_to register_url, :alert => t("register.captcha_code_error")
     end
+
+
 
   end
 
@@ -28,6 +34,7 @@ class PasswordResetController < ApplicationController
       redirect_to edit_password_reset_url(params[:id]), :alert=> t("password_reset.password_not_same")
     else
       if @user.update_attributes(user_params)
+          @user.update(verified: true)
         redirect_to new_session_url, :notice => t("password_reset.password_reset_successfully")
       else
       redirect_to edit_password_reset_url(params[:id]), :alert=> t("other_error")

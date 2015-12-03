@@ -1,10 +1,12 @@
 defaults: &defaults
   app_name: "Ran"
   domain: "localhost:3000"
-  my_domain_url: "cheenwe.cn"
+  my_domain_url: "http://cheenwe.cn"
   admin_email: "cxhyun@163.com"
   mail_token_expire_hour: 3
-  max_login_failure_attempts: 5
+  max_login_failure_attempts: 3
+  login_failure_lock_minute: 15
+
 
 development:
   <<: *defaults

@@ -11,12 +11,12 @@
 		</div>
 
 		<h3 class="page-title">
-			<%= t("users")%> <small><%= t("users.info")%></small>
+			<%= t("users")%> <small><%= t("user.info")%></small>
 		</h3>
 		<ul class="page-breadcrumb breadcrumb">
 			<li>
 				<i class="fa fa-home"></i>
-				<a href="/">Home</a>
+				<a href="/"><%= t('dashboard') %></a>
 				<i class="fa fa-angle-right"></i>
 			</li>
 			<li>
@@ -42,11 +42,19 @@
                      </label>
                   </div>
                </th>
+<<<<<<< HEAD
                <th>UID</th>
                <th>Name</th>
                <th>Phone</th>
                <th>Email</th>
                <th>Sign in count</th>
+=======
+               <th><%= t('user.id') %></th>
+               <th><%= t('user.name') %></th>
+               <th><%= t('user.phone') %></th>
+               <th><%= t('user.email') %></th>
+               <th><%= t('user.sign_in_count') %></th>
+>>>>>>> add fm list
             </tr>
          </thead>
          <tbody>

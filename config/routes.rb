@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
 	root  :to => 'dashboard#v1'
 
-
+	get 'plugs/icons'
+	get 'plugs/animations'
+	get 'plugs/animations'
 
 
 	get 'plugs/icons'
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
 			resources :users
+			resources :qingting
 		end
 	end
 

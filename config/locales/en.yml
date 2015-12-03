@@ -67,6 +67,7 @@ en:
         format: "%{attribute} %{message}"
 
   user:
+    info: User info ...
     email: Email
     name: Username
     password: Password
@@ -146,6 +147,11 @@ en:
     not_null: "Not null"
 
 
+  qingting:
+    info: "Qingting Fm info..."
+    categories: Categories
+
+  qingting: QingtingFM
   users: Users
   dashboard: Dashboard
   icons: Icons

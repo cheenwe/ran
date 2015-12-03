@@ -28,7 +28,7 @@ class SessionController < ApplicationController
 	def login_success
 		if user_params[:remember] == 'true'
 			@user.refresh_remember_token
-			cookies[:auth_token] = { :value => @user.remember_token, :expires => 2.weeks.from_now }
+			cookies[:auth_token] = { :value => @user.remember_token, :expires => 1.minute.from_now }
 		end
 		session[:user_id] = @user.id
 		redirect_url = session.delete(:return_to) || users_url

@@ -29,3 +29,4 @@ revisions.log
 shared/*
 db/schema.rb
 vendor/bundle/
+.idea/

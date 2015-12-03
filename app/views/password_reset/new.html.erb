@@ -16,6 +16,13 @@
           <%= f.text_field :email,placeholder: I18n.t(:"register.email_placeholder"),required:"required",type:"email", autocomplete:"on",class:"form-control input-lg m-b" %>
            <span class="fa fa-envelope form-control-feedback text-muted"></span>
         </div>
+
+        <div class="form-group has-feedback">
+          <%= rucaptcha_input_tag(class: 'form-control col-md-2', placeholder: 'Input Captcha') %>
+          <%= rucaptcha_image_tag(alt: 'Captcha') %>
+          </a>
+        </div>
+
         <%= f.submit I18n.t(:"password_reset.submit"), class: "btn btn-danger btn-block btn-lg" %>
 
         <%= link_to t(:back), new_session_path, class: "btn btn-default btn-block  " %>
