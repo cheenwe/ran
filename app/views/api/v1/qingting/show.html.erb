@@ -36,91 +36,92 @@
 
 
 <div class="panel panel-default">
-
-	<div class="table-responsive">
-
-		<!-- 分页 -->
-		<div class="row">
-			<ul class="pagination  pagination-lg m0 pull-right">
-				<li>
-					<a href="/api/v1/qingting/<%= params["id"]%>?page=1&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="First">
-						<span aria-hidden="true"><<</span>
-					</a>
-				</li>
-				<li>
-					<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= params[:page].to_i - 1%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Previous">
-						<span aria-hidden="true"><</span>
-					</a>
-				</li>
-				<li>
-					<a href="/api/v1/qingting/<%= params["id"]%>?page=1&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Current page">
-						<span aria-hidden="true"><%= params["page"]%></span>
-					</a>
-				</li>
-				<li>
-					<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= params[:page].to_i + 1%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Previous">
-						<span aria-hidden="true">></span>
-					</a>
-				</li>
-				<li>
-
-					<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= @lists["total"].to_i/30 + 1%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Last">
-						<span aria-hidden="true">>></span>
-					</a>
-				</li>
-			</ul>
-		<!-- 分页结束 -->
-		</div>
-		<table id="table-ext-1" class="table table-bordered table-hover">
-			<thead>
+	<table id="table-ext-1" class="table table-bordered table-hover">
+		<thead>
+			<tr class="bg-gray-light">
+				<th data-check-all="data-check-all">
+					<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+						<label>
+							<input type="checkbox" />
+							<span class="fa fa-check"></span>
+						</label>
+					</div>
+				</th>
+				<th> </th>
+				<th><%= t('qingting_id') %></th>
+				<th><%= t('qingting_name') %></th>
+				<th><%= t('description') %></th>
+				<th><%= t('star') %></th>
+				<th><%= t('program_count') %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @lists["data"].each do |list| %>
 				<tr>
-					<th data-check-all="data-check-all">
-						<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+					<td>
+						<div class="checkbox c-checkbox">
 							<label>
 								<input type="checkbox" />
 								<span class="fa fa-check"></span>
 							</label>
 						</div>
-					</th>
-					<th> </th>
-					<th><%= t('qingting_id') %></th>
-					<th><%= t('qingting_name') %></th>
-					<th><%= t('description') %></th>
-					<th><%= t('star') %></th>
-					<th><%= t('program_count') %></th>
+					</td>
+					<td>
+						<div class="media">
+							<img src="<%= list["thumbs"]["200_thumb"] %>" alt="Image" class="img-responsive img-circle" />
+						</div>
+					</td>
+					<td>
+						<a href="/api/v1/qingting/programs/?channel_id=<%= list["id"] %>&category_name=<%= params[:name]%>&channel_title=<%= list["title"] %>&page=1"><%= list["id"] %></a>
+					</td>
+					<td><%= list["title"] %></td>
+
+					<td><div  data-toggle="tooltip" data-placement="bottom" title=""  data-original-title="<%= list["description"] %>"> description </div></td>
+					<td><%= list["star"] %></td>
+					<td><%= list["detail"]["program_count"] %></td>
 				</tr>
-			</thead>
-			<tbody>
-				<% @lists["data"].each do |list| %>
-					<tr>
-						<td>
-							<div class="checkbox c-checkbox">
-								<label>
-									<input type="checkbox" />
-									<span class="fa fa-check"></span>
-								</label>
-							</div>
-						</td>
-						<td>
-							<div class="media">
-								<img src="<%= list["thumbs"]["200_thumb"] %>" alt="Image" class="img-responsive img-circle" />
-							</div>
-						</td>
-						<td>
-							<a href="/api/v1/qingting/<%= list["id"]%>?id=<%= list["id"] %>&title=<%= list["title"] %>"><%= list["id"] %></a>
-						</td>
-						<td><%= list["title"] %></td>
+			<% end %>
 
-						<td><div  data-toggle="tooltip" data-placement="bottom" title=""  data-original-title="<%= list["description"] %>"> description </div></td>
-						<td><%= list["star"] %></td>
-						<td><%= list["detail"]["program_count"] %></td>
-						<td>
-						</td>
-					</tr>
-				<% end %>
+		</tbody>
+	</table>
 
-			</tbody>
-		</table>
+	<div class="panel-footer">
+		<div class="row">
 
+			<!-- 分页 -->
+			<div class="col-lg-4 pull-right">
+				<ul class="pagination  pagination-lg m0 pull-right">
+					<li>
+						<a href="/api/v1/qingting/<%= params["id"]%>?page=1&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="First">
+							<span aria-hidden="true"><<</span>
+						</a>
+					</li>
+					<li>
+						<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= params[:page].to_i - 1%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Previous">
+							<span aria-hidden="true"><</span>
+						</a>
+					</li>
+					<li>
+						<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= params["page"]%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Current page">
+							<span aria-hidden="true"><%= params["page"]%></span>
+						</a>
+					</li>
+					<li>
+						<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= params[:page].to_i + 1%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Previous">
+							<span aria-hidden="true">></span>
+						</a>
+					</li>
+					<li>
+
+						<a href="/api/v1/qingting/<%= params["id"]%>?page=<%= @lists["total"].to_i/30 + 1%>&id=<%= params["id"] %>&name=<%= params["name"] %>" aria-label="Last">
+							<span aria-hidden="true">>></span>
+						</a>
+					</li>
+				</ul>
+			<!-- 分页结束 -->
+			</div>
+
+		</div>
 	</div>
+</div>
 

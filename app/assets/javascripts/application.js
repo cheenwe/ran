@@ -19,8 +19,19 @@
 //= require jquery.storageapi
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap
+//= require jquery.stickytableheaders.min
+
+//= require  angularjs/angular
+//= require  angularjs/angular-animate
+//= require  angularjs/angular-cookies
+//= require  angularjs/angular-resource
+//= require  angularjs/angular-route
+//= require  angularjs/angular-sanitize
+//= require  angularjs/angular-scenario
 
 
 //= require_tree ./ran/
+
+//= require app
 //= require_tree .
 

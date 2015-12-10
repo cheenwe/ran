@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      namespace :qingting do
+        resources :programs
+      end
+    end
+  end
   resources :queries
 	mount RuCaptcha::Engine => "/rucaptcha"
 
@@ -22,7 +29,7 @@ Rails.application.routes.draw do
 
 	get 'plugs/icons'
 	get 'plugs/animations'
-	get 'plugs/animations'
+	get 'plugs/colors'
 
        #-----------------for api
 

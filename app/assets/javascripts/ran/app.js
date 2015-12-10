@@ -27,6 +27,9 @@
       container: 'body'
     });
 
+
+    $("table").stickyTableHeaders();
+
     // DROPDOWN INPUTS
     // -----------------------------------
     $('.dropdown input').on('click focus', function(event){
