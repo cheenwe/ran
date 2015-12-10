@@ -57,11 +57,11 @@
     </div>
     <div class="col-md-6">
     <div class="input-group">
-       <input type="text" id="query" placeholder="Search" class="input-sm form-control">
+       <input type="text" id="query" placeholder="Search" class="input-sm form-control" ng-model="query">
        <span class="input-group-btn">
           <!-- <button type="button" class="btn btn-sm btn-default">Search</button> -->
 
-          <a href="<%= api_v1_qingting_programs_url %>?query=" class="btn btn-sm btn-default ">Search</a>
+          <a href="<%= api_v1_qingting_programs_url %>?query={{query}}" class="btn btn-sm btn-default ">Search</a>
        </span>
     </div>
   </div>
