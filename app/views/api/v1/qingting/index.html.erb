@@ -29,82 +29,143 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-7">
+			<div class="panel panel-default">
+				<div class="table-responsive">
+					<table id="table-ext-1"  class="table table-bordered table-hover">
+						<thead>
+							<tr class ="bg-gray-light">
+								<th data-check-all="data-check-all">
+									<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+										<label>
+											<input type="checkbox" />
+											<span class="fa fa-check"></span>
+										</label>
+									</div>
+								</th>
+								<th><%= t('qingting_sequence') %></th>
+								<th><%= t('qingting_id') %></th>
+								<th><%= t('qingting_name') %></th>
+								<th><%= t('qingting_type') %></th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @categories.each do |category| %>
+								<tr>
+									<td>
+										<div class="checkbox c-checkbox">
+											<label>
+												<input type="checkbox" />
+												<span class="fa fa-check"></span>
+											</label>
+										</div>
+									</td>
+									<td><%= category["sequence"] %></td>
+									<td>
+										<a href="/api/v1/qingting/<%= category["id"]%>?page=1&id=<%= category["id"] %>&name=<%= category["name"] %>"><%= category["id"] %></a>
+									</td>
+									<td><%= category["name"] %></td>
+									<td><%= category["type"] %></td>
+									<td>
+										<a href="/api/v1/qingting/new?action_type=create&id=<%= category["id"] %>&name=<%= category["name"] %>&sequence=<%= category["sequence"] %>&section_id=<%= category["section_id"] %>&category_type=<%= category["type"] %>" >
+											<em  class="fa fa-star-o"></em>
+										</a>
+									</td>
+								</tr>
+							<% end %>
 
-<div class="panel panel-default">
+						</tbody>
+					</table>
+				</div>
+				<!-- END table-responsive-->
+				<div class="panel-footer">
+					<div class="row">
 
-	<div class="table-responsive">
-		<table  class="table table-bordered table-hover">
-			<thead>
-				<tr class ="bg-gray-light">
-					<th data-check-all="data-check-all">
-						<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
-							<label>
-								<input type="checkbox" />
-								<span class="fa fa-check"></span>
-							</label>
-						</div>
-					</th>
-					<th><%= t('qingting_sequence') %></th>
-					<th><%= t('qingting_id') %></th>
-					<th><%= t('qingting_name') %></th>
-					<th><%= t('qingting_section_id') %></th>
-					<th><%= t('qingting_type') %></th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @categories.each do |category| %>
-					<tr>
-						<td>
-							<div class="checkbox c-checkbox">
-								<label>
-									<input type="checkbox" />
-									<span class="fa fa-check"></span>
-								</label>
+						<div class="col-lg-2">
+							<div class="input-group pull-right">
+								<select class="input-sm form-control">
+									<option value="0">Bulk action</option>
+									<option value="1">Delete</option>
+									<option value="2">Clone</option>
+									<option value="3">Export</option>
+								</select>
+								<span class="input-group-btn">
+									<button class="btn btn-sm btn-default">Apply</button>
+								</span>
 							</div>
-						</td>
-						<td><%= category["sequence"] %></td>
-						<td>
-							<a href="/api/v1/qingting/<%= category["id"]%>?page=1&id=<%= category["id"] %>&name=<%= category["name"] %>"><%= category["id"] %></a>
-						</td>
-						<td><%= category["name"] %></td>
-						<td><%= category["section_id"] %></td>
-						<td><%= category["type"] %></td>
-					</tr>
-				<% end %>
-
-			</tbody>
-		</table>
-	</div>
-	<!-- END table-responsive-->
-	<div class="panel-footer">
-		<div class="row">
-
-			<div class="col-lg-2">
-				<div class="input-group pull-right">
-					<select class="input-sm form-control">
-						<option value="0">Bulk action</option>
-						<option value="1">Delete</option>
-						<option value="2">Clone</option>
-						<option value="3">Export</option>
-					</select>
-					<span class="input-group-btn">
-						<button class="btn btn-sm btn-default">Apply</button>
-					</span>
+						</div>
+						<div class="col-lg-2">
+							<div class="input-group">
+								<input type="text" placeholder="Search" class="input-sm form-control" />
+								<span class="input-group-btn">
+									<button type="button" class="btn btn-sm btn-default">Search</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-lg-8"></div>
+					</div>
 				</div>
 			</div>
-			<div class="col-lg-2">
-				<div class="input-group">
-					<input type="text" placeholder="Search" class="input-sm form-control" />
-					<span class="input-group-btn">
-						<button type="button" class="btn btn-sm btn-default">Search</button>
-					</span>
+		</div>
+
+		<div class="col-md-5">
+			<div class="panel panel-default">
+				<div class="table-responsive">
+					<table id="table-ext-1"  class="table table-bordered table-hover">
+						<thead>
+							<tr class ="bg-gray-light">
+								<th data-check-all="data-check-all">
+									<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+										<label>
+											<input type="checkbox" />
+											<span class="fa fa-check"></span>
+										</label>
+									</div>
+								</th>
+								<th><%= t('qingting_sequence') %></th>
+								<th><%= t('qingting_id') %></th>
+								<th><%= t('qingting_name') %></th>
+								<th><%= t('qingting_type') %></th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @api_categories.each do |category| %>
+								<tr>
+									<td>
+										<div class="checkbox c-checkbox">
+											<label>
+												<input type="checkbox" />
+												<span class="fa fa-check"></span>
+											</label>
+										</div>
+									</td>
+									<td><%= category["sequence"] %></td>
+									<td>
+										<a href="/api/v1/qingting/<%= category["id"]%>?page=1&id=<%= category["id"] %>&name=<%= category["name"] %>"><%= category["id"] %></a>
+									</td>
+									<td><%= category["name"] %></td>
+									<td><%= category["category_type"] %></td>
+									<td>
+										<a href="/api/v1/qingting/new?action_type=remove&category_id=<%= category["id"] %>" >
+											<em  class="fa fa-remove"></em>
+										</a>
+									</td>
+
+								</tr>
+							<% end %>
+
+						</tbody>
+					</table>
 				</div>
 			</div>
-			<div class="col-lg-8"></div>
+
 		</div>
 	</div>
 </div>
-
 
 
 

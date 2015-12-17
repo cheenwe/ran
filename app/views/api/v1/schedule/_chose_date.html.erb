@@ -1,0 +1,63 @@
+<!--
+program_schedule: 节目排播
+program_schedule_info: 请先选择排播日期...
+-->
+<div class="row">
+  <div class="col-md-12">
+    <div class="pull-right">
+    </div>
+    <h3 class="page-title">
+      <%= t("program_schedule")%> <small><%= t('program_schedule_info')%></small>
+    </h3>
+    <ul class="page-breadcrumb breadcrumb">
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/"><%= t('dashboard') %></a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+      <li>
+        <a href="/api/v1/schedule"><%= t('program_schedule') %></a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="calendar-app col-md-8">
+         <!-- START panel-->
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <!-- START calendar-->
+               <div id="calendar"></div>
+               <!-- END calendar-->
+            </div>
+         </div>
+</div>
+
+<div class="col-md-4">
+    <div class="input-group col-md-8">
+       <!-- <input type="text" id="query" placeholder="请输入节目名称" class="input-sm form-control" ng-model="query"> -->
+
+       <input type="text"  id="datepicker" class="form-control col-md-8" placeholder="请先选择日期,再点击开始排播"  ng-model="play_date" >
+       <span class="input-group-btn"  read-only="true">
+          <a href="<%= api_v1_schedule_index_url %>?play_date={{play_date}}" class="btn  btn-success ">开始排播节目</a>
+       </span>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+  $('#datepicker').datepicker({
+      todayBtn: "linked",
+      format: "yyyy-mm-dd",
+      // clearBtn: true,
+      language: "zh-CN",
+      autoclose: true,
+      todayHighlight: true,
+      toggleActive: true
+  });
+</script>
+
+
+

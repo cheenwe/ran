@@ -1,152 +1,152 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="pull-right">
-      <!-- <div class="btn-group">
-        <a class="btn btn-labeled btn-primary" href="<%= new_user_path %>" type="button">
-          <i class="fa fa-plus"><%= t('add') %></i>
-        </a>
-      </div> -->
-    </div>
-    <h3 class="page-title">
-      <%= t("qingting")%> <small><%= t('qingting_info')%></small>
-    </h3>
-    <ul class="page-breadcrumb breadcrumb">
-      <li>
-        <i class="fa fa-home"></i>
-        <a href="/"><%= t('dashboard') %></a>
-        <i class="fa fa-angle-right"></i>
-      </li>
-      <li>
-        <i class="fa fa-uers"></i>
-        <a href="/api/v1/qingting"><%= t('qingting') %></a>
-        <i class="fa fa-angle-right"></i>
-      </li>
-      <li>
-        <i class="fa fa-uers"></i>
-        <a href="/api/v1/qingting"><%= t('qingting_categories') %></a>
-        <i class="fa fa-angle-right"></i>
-      </li>
-      <li>
-        <i class="fa fa-uers"></i>
-        <a href="/api/v1/qingting/<%= params["channel_id"]%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>"><%= params["category_name"]%></a>
-        <i class="fa fa-angle-right"></i>
-      </li>
-      <li>
-        <i class="fa fa-uers"></i>
-          <a href="/api/v1/qingting/programs?channel_id=<%= params["channel_id"]%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>"><%= params["channel_title"]%></a>
-      </li>
-    </ul>
-  </div>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<!-- <div class="btn-group">
+				<a class="btn btn-labeled btn-primary" href="<%= new_user_path %>" type="button">
+					<i class="fa fa-plus"><%= t('add') %></i>
+				</a>
+			</div> -->
+		</div>
+		<h3 class="page-title">
+			<%= t("qingting")%> <small><%= t('qingting_info')%></small>
+		</h3>
+		<ul class="page-breadcrumb breadcrumb">
+			<li>
+				<i class="fa fa-home"></i>
+				<a href="/"><%= t('dashboard') %></a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<i class="fa fa-uers"></i>
+				<a href="/api/v1/qingting"><%= t('qingting') %></a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<i class="fa fa-uers"></i>
+				<a href="/api/v1/qingting"><%= t('qingting_categories') %></a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<i class="fa fa-uers"></i>
+
+				<a href="/api/v1/qingting/<%= params["id"]%>?id=<%= params["id"] %>&name=<%= params["category_name"] %>"><%= params["category_name"]%></a>
+				<i class="fa fa-angle-right"></i>
+			</li>
+			<li>
+				<i class="fa fa-uers"></i>
+					<a href="/api/v1/qingting/programs?id=<%= params["id"]%>&channel_id=<%= params["channel_id"]%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>&page=<%= params[:page]%>&page_size=<%= params[:page_size]%>"><%= params["channel_title"]%></a>
+			</li>
+		</ul>
+	</div>
 </div>
 
 
 <div class="panel panel-default">
-  <div class="panel-heading">
-  <div class="row">
-    <div class="col-md-6">
-      <div id="sample_1_length" class="dataTables_length">
-        <label>
-          <select size="1" name="sample_1_length" class="form-control input-xsmall">
-            <option value="30" selected="selected">30</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <!-- <option value="-1">All</option> -->
-          </select>
-        </label>
-      </div>
-    </div>
-    <div class="col-md-6">
-    <div class="input-group">
-       <input type="text" id="query" placeholder="Search" class="input-sm form-control" ng-model="query">
-       <span class="input-group-btn">
-          <!-- <button type="button" class="btn btn-sm btn-default">Search</button> -->
+	<div class="panel-heading">
+	<div class="row">
+		<div class="col-md-6">
+			<div id="sample_1_length" class="dataTables_length">
+				<label>
+					<select size="1" name="sample_1_length" class="form-control input-xsmall" ng-model="page_size">
+						<option value="30" selected="selected">30</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<!-- <option value="-1">All</option> -->
+					</select>
+				</label>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="input-group">
+				<input type="text" id="query" placeholder="请输入节目名称" class="input-sm form-control" ng-model="query">
+				<span class="input-group-btn">
+					<a href="<%= api_v1_qingting_programs_url %>?query={{query}}&page_size=<%= params[:page_size]%>" class="btn btn-sm btn-success ">Search</a>
+				</span>
+			</div>
+		</div>
+	</div>
 
-          <a href="<%= api_v1_qingting_programs_url %>?query={{query}}" class="btn btn-sm btn-default ">Search</a>
-       </span>
-    </div>
-  </div>
-  </div>
+	<table id="table-ext-1" class="table table-bordered table-hover">
+		<thead>
+			<tr class="bg-gray-light">
+				<th data-check-all="data-check-all">
+					<div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
+						<label>
+							<input type="checkbox" />
+							<span class="fa fa-check"></span>
+						</label>
+					</div>
+				</th>
+				<th> </th>
+				<th><%= t('program_id') %></th>
+				<th><%= t('programs_title') %></th>
+				<th><%= t('programs_description') %></th>
+				<th><%= t('programs_duration') %></th>
+				<th><%= t('programs_sequence') %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @api_v1_qingting_programs.each do |list| %>
+				<tr>
+					<td>
+						<div class="checkbox c-checkbox">
+							<label>
+								<input type="checkbox" />
+								<span class="fa fa-check"></span>
+							</label>
+						</div>
+					</td>
+					<td><%= list["program_id"] %></td>
+					<td>
+						<%= list["id"] %>
+						<!-- <a href="/api/v1/qingting/programs/?channel_id=<%= list["id"] %>&title=<%= list["title"] %>"><%= list["id"] %></a> -->
+					</td>
+					<td><%= list["title"] %></td>
+					<td><div  data-toggle="tooltip" data-placement="bottom" title=""  data-original-title="<%= list["description"] %>"> description </div></td>
+					<td><%= list["duration"] %></td>
+					<td><%= list["detail"]["sequence"] rescue ''%></td>
+				</tr>
+			<% end %>
 
-  <table id="table-ext-1" class="table table-bordered table-hover">
-    <thead>
-      <tr class="bg-gray-light">
-        <th data-check-all="data-check-all">
-          <div data-toggle="tooltip" data-title="Check All" class="checkbox c-checkbox">
-            <label>
-              <input type="checkbox" />
-              <span class="fa fa-check"></span>
-            </label>
-          </div>
-        </th>
-        <th> </th>
-        <th><%= t('program_id') %></th>
-        <th><%= t('programs_title') %></th>
-        <th><%= t('programs_description') %></th>
-        <th><%= t('programs_duration') %></th>
-        <th><%= t('programs_sequence') %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @api_v1_qingting_programs.each do |list| %>
-        <tr>
-          <td>
-            <div class="checkbox c-checkbox">
-              <label>
-                <input type="checkbox" />
-                <span class="fa fa-check"></span>
-              </label>
-            </div>
-          </td>
-          <td><%= list["program_id"] %></td>
-          <td>
-            <a href="/api/v1/qingting/programs/?channel_id=<%= list["id"] %>&title=<%= list["title"] %>"><%= list["id"] %></a>
-          </td>
-          <td><%= list["title"] %></td>
-          <td><div  data-toggle="tooltip" data-placement="bottom" title=""  data-original-title="<%= list["description"] %>"> description </div></td>
-          <td><%= list["duration"] %></td>
-          <td><%= list["detail"]["sequence"] rescue ''%></td>
-        </tr>
-      <% end %>
+		</tbody>
+	</table>
 
-    </tbody>
-  </table>
+	<div class="panel-footer">
+		<div class="row">
 
-  <div class="panel-footer">
-    <div class="row">
+			<!-- 分页 -->
+			<div class="col-lg-4 pull-right">
+				<ul class="pagination  pagination-lg m0 pull-right">
+					<li>
+						<a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=1&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>&page_size=<%= params[:page_size]%>" aria-label="First">
+							<span aria-hidden="true"><<</span>
+						</a>
+					</li>
+					<li>
+						<a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= params[:page].to_i - 1%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>&page_size=<%= params[:page_size]%>" aria-label="Previous">
+							<span aria-hidden="true"><</span>
+						</a>
+					</li>
+					<li>
+						<a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= params["page"]%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>&page_size=<%= params[:page_size]%>" aria-label="Current page">
+							<span aria-hidden="true"><%= params["page"]%></span>
+						</a>
+					</li>
+					<li>
+						<a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= params[:page].to_i + 1%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>&page_size=<%= params[:page_size]%>" aria-label="Previous">
+							<span aria-hidden="true">></span>
+						</a>
+					</li>
+					<li>
 
-      <!-- 分页 -->
-      <div class="col-lg-4 pull-right">
-        <ul class="pagination  pagination-lg m0 pull-right">
-          <li>
-            <a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=1&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>" aria-label="First">
-              <span aria-hidden="true"><<</span>
-            </a>
-          </li>
-          <li>
-            <a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= params[:page].to_i - 1%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>" aria-label="Previous">
-              <span aria-hidden="true"><</span>
-            </a>
-          </li>
-          <li>
-            <a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= params["page"]%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>" aria-label="Current page">
-              <span aria-hidden="true"><%= params["page"]%></span>
-            </a>
-          </li>
-          <li>
-            <a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= params[:page].to_i + 1%>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>" aria-label="Previous">
-              <span aria-hidden="true">></span>
-            </a>
-          </li>
-          <li>
+						<a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= @api_v1_qingting_programs["total"].to_i/30  rescue '' %>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>&page_size=<%= params[:page_size]%>" aria-label="Last">
+							<span aria-hidden="true">>></span>
+						</a>
+					</li>
+				</ul>
+			</div>
 
-            <a href="/api/v1/qingting/programs/?channel_id=<%= params["channel_id"]%>&page=<%= @api_v1_qingting_programs["total"].to_i/30  rescue '' %>&channel_title=<%= params["channel_title"] %>&category_name=<%= params[:category_name]%>" aria-label="Last">
-              <span aria-hidden="true">>></span>
-            </a>
-          </li>
-        </ul>
-      <!-- 分页结束 -->
-      </div>
-
-    </div>
-  </div>
+			<!-- 分页结束 -->
+		</div>
+	</div>
 </div>

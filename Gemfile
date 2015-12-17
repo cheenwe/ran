@@ -27,7 +27,8 @@ gem 'rucaptcha' #图片验证码
 	# sudo apt-get install imagemagick
 	# Mac OS X
 	# brew install imagemagick ghostscript
-gem 'qingting_api', github: 'cheenwe/qingting_api'
+# gem 'qingting_api', github: 'cheenwe/qingting_api'
+gem 'qingting_api', :path => '/home/chenwei/workspace/github/qingting_api'
 group :development, :test do
 
   # gem "better_errors"

@@ -5,13 +5,12 @@ class Api::V1::Qingting::ProgramsController < ApplicationController
   def index
 
     if params[:query]
-      page_size = params[:page_size]  rescue 30
       @api_v1_qingting_programs = QingtingApi.search("#{params[:query]}","program_ondemand")["data"].last["doclist"]["docs"] rescue [""]
     elsif params[:channel_id]
       page_size = params[:page_size]  rescue 30
-      @api_v1_qingting_programs = QingtingApi.ondemand_channel(params[:channel_id],1,page_size)["data"]  rescue [""]
+      page = params[:page]  rescue 1
+      @api_v1_qingting_programs = QingtingApi.ondemand_channel(params[:channel_id], page, page_size)["data"]  rescue [""]
     else
-
       @api_v1_qingting_programs = [""]
     end
   end

@@ -28,10 +28,24 @@
 //= require  angularjs/angular-route
 //= require  angularjs/angular-sanitize
 //= require  angularjs/angular-scenario
+//= require  momentjs/moment.min
+//= require  momentjs/locales.min
+
+//= require  fullcalendar/fullcalendar.min
+//= require  fullcalendar/lang/zh-cn
+
+//= require  bootstrap-datepicker/js/bootstrap-datepicker.min
+//= require  bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min
+
+
+//= require  html.sortable.min
+
+
 
 
 //= require_tree ./ran/
 
 //= require app
+
 //= require_tree .
 

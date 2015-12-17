@@ -147,6 +147,10 @@
   qingting_section_id: 部分
   qingting_type: 类型
 
+  program_schedule: 节目排播
+  program_schedule_info: 请先选择排播日期...
+  program_schedule_search_info: 请搜索节目名称或者频道名称进行选择...
+  add_schedule: 添加到排播
   qingting: 蜻蜓FM
   users: 账户管理
   dashboard: 仪表盘

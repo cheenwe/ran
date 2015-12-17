@@ -28,6 +28,24 @@
 				</a>
 			</li>
 
+			<li class=<%= 'active' if controller?('qingting') && action?('index') %> >
+				<a href="/api/v1/qingting" title="Dashboard">
+					<em class="fa fa-facebook"></em>
+					<!-- <div class="label label-success pull-right">3</div> -->
+					<span><%= t("qingting")%></span>
+				</a>
+			</li>
+
+			<li class=<%= 'active' if controller?('schedule') && action?('index') %> >
+				<a href="/api/v1/schedule" title="Dashboard">
+					<em class="fa fa-calendar"></em>
+					<!-- <div class="label label-success pull-right">3</div> -->
+					<span><%= t("schedule")%></span>
+				</a>
+			</li>
+
+
+
 			<li class=<%= 'active' if controller?('users') && action?('index') %> >
 				<a href="/users" title="<%= t("users")%>"  >
 					<em class="fa fa-users"></em>
