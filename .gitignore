@@ -30,4 +30,5 @@ shared/*
 db/schema.rb
 vendor/bundle/
 .idea/
+.bundle/
 dump.rdb
