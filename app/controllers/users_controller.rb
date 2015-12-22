@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  swagger_controller :users, "UsersController"
+
+     swagger_api :index do
+      summary "test"
+      response :unauthorized
+      response :not_acceptable
+     end
+
+
   # GET /api/v1/users
   def index
-    @users = User.all
+    render :json =>   {:seq_no => params[:seq_no],  :headcode =>200, :result =>"Success", :users => User.all}, :status => 200
   end
 
   # GET /api/v1/users/1

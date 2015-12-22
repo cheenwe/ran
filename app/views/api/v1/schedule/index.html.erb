@@ -27,10 +27,30 @@ program_schedule_search_info: 请搜索节目名称或者频道名称进行选�
 	</div>
 </div>
 
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="col-md-7">
+
+			<div class="panel panel-default panel-demo">
+			   <div class="panel-heading">批量排播
+			      <a href="#" data-tool="panel-collapse" data-toggle="tooltip" title="打开/关闭" class="pull-right">
+			         <em class="fa fa-plus"></em>
+			      </a>
+			   </div>
+			   <div class="panel-wrapper">
+				<div class="panel-body">
+
+					<div class="col-md-12">
+						<textarea  placeholder="请输入您要排播的节目id,以.分割,如: 3720553.3711513.3672454.3668451" class="input-sm form-control" ng-model="program_ids">
+						</textarea>
+					</div>
+
+					<span class=" form-label col-md-2 pull-right">
+						<a href="/api/v1/schedule/new?action_type=create&program_ids={{program_ids}}&collect_type=playlist&play_date=<%= params[:play_date]%>"  class="btn btn-sm btn-primary ">开始批量排播</a>
+					</span>
+				</div>
+			   </div>
+			</div>
 			<div class="panel panel-default">
 				<div class="row">
 					<div class="col-md-4">
@@ -85,7 +105,6 @@ program_schedule_search_info: 请搜索节目名称或者频道名称进行选�
 								<th><%= t('title') %></th>
 								<th><%= t('duration') %></th>
 								<th>操作</th>
-
 							</tr>
 						<% end %>
 					</thead>
@@ -182,34 +201,41 @@ program_schedule_search_info: 请搜索节目名称或者频道名称进行选�
 							</thead>
 							<tbody>
 
-							<ul class="list-group sortable">
+							<tbody>
+
+								<% @playlists.each do |list| %>
+
+									<tr>
+										<td><%= list["program_id"] %></td>
+										<td><%= list["sequence"] %></td>
+										<td><%= list["start_at"] %></td>
+										<td><%= list["title"] %></td>
+										<td><%= Time.at(list["duration"]).utc.strftime("%H:%M:%S")  rescue '' %></td>
+										<td>
+
+											<a href="/api/v1/schedule/new?action_type=remove&id=<%= list["program_id"] %>&collect_type=playlist&play_date=<%= params[:play_date]%>" >
+												<em  class="fa fa-remove"></em>
+											</a>
+
+										</td>
+									</tr>
+								<% end %>
+
+							</tbody>
+
+<!-- 							<ul class="list-group sortable">
 								<% @playlists.each do |list| %>
 
 							   		<li class="list-group-item">
 
 							   			<em class="fa fa-reorder fa-fw text-muted mr-lg"></em>
 							   			<%= list["sequence"] %> 　｜　<%= list["start_at"] %>　｜　<%= list["title"] %>　｜　<%= Time.at(list["duration"]).utc.strftime("%H:%M:%S")   %>　｜　
-											<a href="/api/v1/schedule/new?action_type=remove&id=<%= list["program_id"] %>&collect_type=playlist&play_date=<%= params[:play_date]%>" >
-												<em  class="fa fa-remove"></em>
-											</a>
-										<!-- <tr>
-											<td><%= list["sequence"] %></td>
-											<td><%= list["start_at"] %></td>
-											<td><%= list["title"] %></td>
-											<td><%= Time.at(list["duration"]).utc.strftime("%H:%M:%S")  rescue '' %></td>
-											<td>
-
-												<a href="/api/v1/schedule/new?action_type=remove&id=<%= list["program_id"] %>&collect_type=playlist&play_date=<%= params[:play_date]%>" >
-													<em  class="fa fa-remove"></em>
-												</a>
-
-											</td>
-										</tr> -->
+										<a href="/api/v1/schedule/new?action_type=remove&id=<%= list["program_id"] %>&collect_type=playlist&play_date=<%= params[:play_date]%>" >
+											<em  class="fa fa-remove"></em>
+										</a>
 									</li>
 								<% end %>
-
-							</ul>
-							</tbody>
+							</ul> -->
 						</table>
 
 					</div>

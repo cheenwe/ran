@@ -9,8 +9,13 @@ class System
       a['sessionid']
     end
 
+    #通过id进行多次排播
+    def addplaylists(program_ids, play_date)
+      post '/api/v1/fmplaylists', sessionid: System.new.access_token, program_ids: program_ids, play_date: play_date, collect_type:"playlist"
+    end
+
     #节目排播
-    def addplaylists(program_id, play_date)
+    def addplaylist(program_id, play_date)
       post '/api/v1/fmplaylists', sessionid: System.new.access_token, program_id: program_id, play_date: play_date, collect_type:"playlist"
     end
 

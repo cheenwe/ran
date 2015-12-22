@@ -34,9 +34,15 @@ class Api::V1::ScheduleController < ApplicationController
 	end
 
 	def new
-		puts ">>>>>>>>>>in #{params[:action_type]}"
-		if params[:action_type] == "create"
-			if info = System.new.addplaylists(params[:id],params[:play_date])
+
+		if params[:action_type] == "create"&&params[:program_ids]
+			if info = System.new.addplaylists(params[:program_ids],params[:play_date])
+				redirect_to :back,  notice: "批量插播成功,请查看右边栏目"
+			else
+				redirect_to :back,  notice: t("other_error")
+			end
+		elsif params[:action_type] == "create"
+			if info = System.new.addplaylist(params[:id],params[:play_date])
 				redirect_to :back,  notice: info
 			else
 				redirect_to :back,  notice: t("other_error")

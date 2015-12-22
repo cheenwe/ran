@@ -7,7 +7,7 @@ defaults: &defaults
   max_login_failure_attempts: 3
   login_failure_lock_minute: 15
 
-  api_url: "http://192.168.10.5:3000"
+  api_url: "http://139.196.58.149:3000"
   phone: "88888888888"
   password: "123"
 
