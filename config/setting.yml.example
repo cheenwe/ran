@@ -7,6 +7,10 @@ defaults: &defaults
   max_login_failure_attempts: 5
   login_failure_lock_minute: 15
 
+  api_url: "http://cheenwe.cn"
+  phone: "12312312312"
+  password: "123123"
+
 development:
   <<: *defaults
 

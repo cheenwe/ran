@@ -1,11 +1,14 @@
 
+window.Ran = {}
+
 modules = [
-  "ngResource",
-  "ngRoute",
-  'ngAnimate',
-  "ngCookies",
-  'ngSanitize'
+	"ngResource",
+	"ngRoute",
+	'ngAnimate',
+	"ngCookies",
+	'ngSanitize',
+	'ui.calendar'
 ]
 
-app = angular.module("Ran", modules)
+Ran.angular = angular.module('ran', modules)
 
