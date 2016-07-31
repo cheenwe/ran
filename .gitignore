@@ -14,6 +14,7 @@ public/qrcode/
 public/assets/
 public/fonts/
 config/database.yml
+config/setting.yml
 db/data.yml
 db/schema.rb
 current

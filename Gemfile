@@ -1,45 +1,119 @@
 source 'https://rubygems.org'
 
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
-# Use Puma as the app server
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
 
-# Use Redis adapter to run Action Cable in production
+gem 'angularjs-rails', '1.2.22'
+
+# 用户系统
+gem 'devise'
+
+
+
+gem 'rails-settings-cached'
+# gem "settingslogic"
+
+gem 'rails-i18n'#, github: 'svenfuchs/rails-i18n', branch: 'master'
+gem 'http_accept_language'
+
+# 上传组件
+gem 'carrierwave'
+gem "carrierwave-qiniu"
+gem 'qiniu-rs'
+gem 'mini_magick'
+
+# 搜索
+gem "ransack"
+
+# 分页
+gem 'will_paginate'
+
+# API
+gem 'active_model_serializers'
+
+# 权限
+gem 'cancancan'
+gem 'active_model_serializers-cancan'
+
+# Redis
 gem 'redis', '~> 3.0'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+
+# 队列
+gem 'sidekiq'
+
+# Sidekiq Web
+gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', require: false
+
+
+# Mailer Service
+gem 'postmark'
+gem 'postmark-rails'
+
+# Cache, kgio is for Dalli
+gem 'kgio' #非阻塞I / O
+gem 'dalli'
+
+
+gem 'unicorn'
+
+#使用云片网api发送短信
+# gem 'smart_sms'
+
+# API推送
+gem 'jpush', :git => 'git://github.com/jpush/jpush-api-ruby-client.git'
+
+# Web端推送
+gem 'pusher'
+
+# #  二维码
+# gem 'rqrcode', '~> 0.10.1'
+
+# 监控
+gem 'newrelic_rpm'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'byebug'#, platform: :mri
+  gem 'bundler-audit', require: false
+  gem 'codecov', require: false
+
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+
+  gem 'sqlite3'
+  gem 'rubocop', require: false
+
+  # JS CSS终端不显示
+  # gem 'quiet_assets'
+
+  # 显示 N+1
+  gem 'bullet'
+
+
+  gem 'better_errors'
+  # 字段在model显示
+  gem "annotate"
+
+  # 服务器部署
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-sidekiq'
+  gem 'capistrano-rbenv', "~> 2.0"
+
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+

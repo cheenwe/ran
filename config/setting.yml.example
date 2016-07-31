@@ -1,0 +1,25 @@
+defaults: &defaults
+
+	# qiniu config
+	qiniu_access_key: "xxxxxxx"
+	qiniu_secret_key: 'xxxxxxxxxxxx'
+	qiniu_bucket: "xxxxxxxxx"
+	qiniu_bucket_domain: "xxxxxx"
+	qiniu_block_size: 4*1024*1024
+	qiniu_protocal: "http"
+	pusher_app_id: '215153'
+	pusher_key: '15d9b3f250973e484598'
+	pusher_secret: 'a8f8e716844213338acf'
+
+	my_web: "http://cheenwe.cn"
+	me: "cheenwe"
+
+
+development:
+	<<: *defaults
+
+test:
+	<<: *defaults
+
+production:
+	<<: *defaults
