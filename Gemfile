@@ -22,8 +22,7 @@ gem 'http_accept_language'
 
 # 上传组件
 gem 'carrierwave'
-gem "carrierwave-qiniu"
-gem 'qiniu-rs'
+gem "carrierwave-qiniu", '0.2.4'
 gem 'mini_magick'
 
 # 搜索
@@ -41,6 +40,7 @@ gem 'active_model_serializers-cancan'
 
 # Redis
 gem 'redis', '~> 3.0'
+gem 'redis-namespace'
 
 
 # 队列
