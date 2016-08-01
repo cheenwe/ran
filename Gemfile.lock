@@ -349,7 +349,7 @@ DEPENDENCIES
   newrelic_rpm
   postmark
   postmark-rails
-  puma (~> 3.0)
+  puma
   pusher
   qiniu-rs
   rails (~> 5.0.0)

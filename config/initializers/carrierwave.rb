@@ -24,9 +24,6 @@ class NullStorage
 end
 
 
-
-
-
 CarrierWave.configure do |config|
   if Rails.env.test?
     config.storage NullStorage

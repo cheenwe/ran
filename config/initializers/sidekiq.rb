@@ -10,20 +10,21 @@ resque_url = if File.exists?(config_file)
 Sidekiq.configure_server do |config|
   config.redis = {
     url: resque_url,
-    namespace: 'resque:istar'
+    namespace: 'resque:ran'
   }
 end
 
 Sidekiq.configure_client do |config|
   config.redis = {
     url: resque_url,
-    namespace: 'resque:istar'
+    namespace: 'resque:ran'
   }
 end
+
 # redis_server = '127.0.0.1' # redis服务器
 # redis_port = 6379 # redis端口
 # redis_db_num = 0 # redis 数据库序号
-# redis_namespace = 'resque_istar' #命名空间，自定义的
+# redis_namespace = 'resque_ran' #命名空间，自定义的
 
 # Sidekiq.configure_server do |config|
 #   p redis_server  # 这个可以去掉

@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '~> 5.0.0'
-
-gem 'puma', '~> 3.0'
+gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -16,10 +14,8 @@ gem 'angularjs-rails', '1.2.22'
 # 用户系统
 gem 'devise'
 
-
-
+#  setting
 gem 'rails-settings-cached'
-# gem "settingslogic"
 
 gem 'rails-i18n'#, github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'http_accept_language'
@@ -52,7 +48,6 @@ gem 'sidekiq'
 
 # Sidekiq Web
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', require: false
-
 
 # Mailer Service
 gem 'postmark'

@@ -7,6 +7,8 @@ defaults: &defaults
 	qiniu_bucket_domain: "xxxxxx"
 	qiniu_block_size: 4*1024*1024
 	qiniu_protocal: "http"
+
+	# pusher
 	pusher_app_id: '215153'
 	pusher_key: '15d9b3f250973e484598'
 	pusher_secret: 'a8f8e716844213338acf'
