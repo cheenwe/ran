@@ -16,6 +16,8 @@ gem 'devise'
 
 #  setting
 gem 'rails-settings-cached'
+gem 'config'
+
 
 gem 'rails-i18n'#, github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'http_accept_language'
@@ -34,6 +36,9 @@ gem 'will_paginate'
 # API
 gem 'active_model_serializers'
 
+# API Request Frequency Limit
+gem 'rack-attack'
+
 # 权限
 gem 'cancancan'
 gem 'active_model_serializers-cancan'
@@ -42,9 +47,11 @@ gem 'active_model_serializers-cancan'
 gem 'redis', '~> 3.0'
 gem 'redis-namespace'
 
-
 # 队列
 gem 'sidekiq'
+
+gem "rest-client"
+gem 'http-cookie'
 
 # Sidekiq Web
 gem 'sinatra', git: 'https://github.com/sinatra/sinatra.git', require: false
@@ -64,7 +71,7 @@ gem 'unicorn'
 # gem 'smart_sms'
 
 # API推送
-gem 'jpush', :git => 'git://github.com/jpush/jpush-api-ruby-client.git'
+gem 'jpush'#, :git => 'git://github.com/jpush/jpush-api-ruby-client.git'
 
 # Web端推送
 gem 'pusher'
@@ -74,6 +81,8 @@ gem 'pusher'
 
 # 监控
 gem 'newrelic_rpm'
+
+gem 'pg'
 
 group :development, :test do
   gem 'byebug'#, platform: :mri
@@ -92,7 +101,6 @@ group :development do
 
   # 显示 N+1
   gem 'bullet'
-
 
   gem 'better_errors'
   # 字段在model显示

@@ -1,0 +1,25 @@
+language: ruby
+env:
+  - USE_OFFICIAL_GEM_SOURCE=1
+
+addons:
+  postgresql: "9.5"
+
+services:
+  - postgresql
+  - memcached
+  - redis-server
+
+rvm:
+  - 2.3.1
+
+before_script:
+  - psql -c "CREATE USER \"admin\" WITH CREATEDB PASSWORD 'admin';" -U postgres
+  - psql -c "create database \"ruby-china-test\" WITH OWNER=\"admin\";" -U postgres
+  - cp config/config.yml.example config/config.yml
+  - cp config/database.yml.example config/database.yml
+  - cp config/redis.yml.example config/redis.yml
+  - cp config/secrets.yml.example config/secrets.yml
+  - RAILS_ENV=test bundle exec rake db:migrate
+
+script: RAILS_ENV=test bundle exec rake

@@ -1,0 +1,27 @@
+---
+:verbose: false
+# :concurrency: 5 # 并发数
+:concurrency: 1
+:timeout: 30
+
+:pidfile: tmp/pids/sidekiq.pid
+:logfile: log/sidekiq.log
+# Sidekiq will run this file through ERB when reading it so you can
+# even put in dynamic logic, like a host-specific queue.
+# http://www.mikeperham.com/2013/11/13/advanced-sidekiq-host-specific-queues/
+
+# :queues:
+# - default # 写在队列参数中的, 表示让 sidekiq 处理这个 queue
+# - [myqueue, 2] # 使用数组的形式写, 第一个参数为打开的 queue 的名称, 第二个为优先级
+:queues:
+  - [push, 1]
+  - [mail, 5]
+  - [default, 3]
+  - [paperclip, 10]
+  - [create, 3]
+
+# you can override concurrency based on environment
+production:
+  :concurrency: 5
+staging:
+  :concurrency: 2

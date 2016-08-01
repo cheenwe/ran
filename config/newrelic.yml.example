@@ -1,0 +1,20 @@
+common: &default_settings
+  license_key: "<%= Settings.newrelic_license_key %>"
+  app_name: "<%= Settings.newrelic_app_name %>"
+  log_level: "<%= Settings.newrelic_log_level %>"
+
+development:
+  <<: *default_settings
+  app_name: "<%= Settings.newrelic_app_name %> dev"
+  developer_mode: true
+
+test:
+  <<: *default_settings
+  monitor_mode: false
+
+staging:
+  <<: *default_settings
+  app_name: "<%= Settings.newrelic_app_name %> staging"
+
+production:
+  <<: *default_settings

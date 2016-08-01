@@ -1,0 +1,3 @@
+newrelic_license_key: "xxxxxxxxxx"
+newrelic_app_name: "xxxxxxxxxxxxx"
+newrelic_log_level: "info"

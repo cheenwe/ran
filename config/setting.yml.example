@@ -13,6 +13,11 @@ defaults: &defaults
   pusher_app_id: 'your_pusher_id'
   pusher_key: 'xxxxx'
   pusher_secret: 'xxxx'
+  # newrelic - application performance monitoring, https://newrelic.com/
+  newrelic_license_key: "xxxxxxxxxx"
+  newrelic_app_name: "xxxxxxxxxxxxx"
+  newrelic_log_level: "info"
+  # about me
   my_web: "http://cheenwe.cn"
   me: "cheenwe"
 
