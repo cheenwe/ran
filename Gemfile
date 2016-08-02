@@ -15,9 +15,8 @@ gem 'angularjs-rails', '1.2.22'
 gem 'devise'
 
 #  setting
-gem 'rails-settings-cached'
+# gem 'rails-settings-cached'
 gem 'config'
-
 
 gem 'rails-i18n'#, github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'http_accept_language'
@@ -64,7 +63,6 @@ gem 'postmark-rails'
 gem 'kgio' #非阻塞I / O
 gem 'dalli'
 
-
 gem 'unicorn'
 
 #使用云片网api发送短信
@@ -88,11 +86,9 @@ group :development, :test do
   gem 'byebug'#, platform: :mri
   gem 'bundler-audit', require: false
   gem 'codecov', require: false
-
 end
 
 group :development do
-
   gem 'sqlite3'
   gem 'rubocop', require: false
 

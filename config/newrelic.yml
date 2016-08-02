@@ -5,7 +5,7 @@ common: &default_settings
 
 development:
   <<: *default_settings
-  app_name: "<%= Settings.newrelic_app_name %> dev"
+  app_name: "<%= Settings.newrelic_app_name %>"
   developer_mode: true
 
 test:
@@ -14,7 +14,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: "<%= Settings.newrelic_app_name %> staging"
+  app_name: "<%= Settings.newrelic_app_name %>"
 
 production:
   <<: *default_settings

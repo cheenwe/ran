@@ -13,9 +13,7 @@ public/qrcode/
 public/assets/
 public/fonts/
 config/database.yml
-config/setting.yml
 config/settings.yml
-config/newrelic.yml
 db/data.yml
 db/schema.rb
 current
@@ -24,6 +22,3 @@ repo/
 revisions.log
 shared/
 app/docs/
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml

@@ -31,11 +31,11 @@ CarrierWave.configure do |config|
     config.storage = :qiniu
   end
   # Do not remove previously file after new file uploaded
-  config.qiniu_access_key = Setting.qiniu_access_key
-  config.qiniu_secret_key = Setting.qiniu_secret_key
-  config.qiniu_bucket = Setting.qiniu_bucket
-  config.qiniu_bucket_domain = Setting.qiniu_bucket_domain
-  config.qiniu_block_size = Setting.qiniu_block_size
-  config.qiniu_protocal = Setting.qiniu_protocal
+  config.qiniu_access_key = Settings.qiniu_access_key
+  config.qiniu_secret_key = Settings.qiniu_secret_key
+  config.qiniu_bucket = Settings.qiniu_bucket
+  config.qiniu_bucket_domain = Settings.qiniu_bucket_domain
+  config.qiniu_block_size = Settings.qiniu_block_size
+  config.qiniu_protocal = Settings.qiniu_protocal
 
 end
