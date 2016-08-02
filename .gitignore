@@ -22,3 +22,4 @@ repo/
 revisions.log
 shared/
 app/docs/
+node_modules/

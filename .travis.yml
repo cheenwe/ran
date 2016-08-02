@@ -3,7 +3,7 @@ env:
   - USE_OFFICIAL_GEM_SOURCE=1
 
 addons:
-  postgresql: "9.5"
+  postgresql: "9.4"
 
 services:
   - postgresql
@@ -14,12 +14,9 @@ rvm:
   - 2.3.1
 
 before_script:
-  - psql -c "CREATE USER 'root' WITH CREATEDB PASSWORD '123123123';" -U postgres
-  - psql -c "create database 'ran-test' WITH OWNER='root';" -U postgres
+  - psql -c "CREATE USER \"root\" WITH CREATEDB PASSWORD '123123123';" -U postgres
+  - psql -c "create database \"ran-test\" WITH OWNER=\"root\";" -U postgres
   - cp config/settings.yml.example config/settings.yml
   - cp config/database.yml.example config/database.yml
   - cp config/redis.yml.example config/redis.yml
   - RAILS_ENV=test bundle exec rake db:migrate
-
-script: RAILS_ENV=test bundle exec rake
-

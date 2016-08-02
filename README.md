@@ -1,6 +1,8 @@
 # README
 
+[Commit](./docs/commit.md)
 
+[Gems](./docs/gems.md)
 
 ## 后台任务序列/sidekiq
 
