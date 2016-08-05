@@ -1,12 +1,13 @@
 # README
 
-[Commit](./docs/commit.md)
+[How to commit](./docs/commit.md)
 
 [Gems](./docs/gems.md)
 
+[Install in ubuntu](./docs/install/ubuntu.md)
 ## 后台任务序列/sidekiq
 
-http://localhost:3000/sidekiq
+http://localhost:3000/admin/sidekiq
 
 ## 性能监控/newrelic
 

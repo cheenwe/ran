@@ -1,3 +1,7 @@
+
+# 文件存储方式/storage mode, default is qiniu, other is : file, upyun, aliyun
+choice_storage: qiniu
+
 # qiniu - file storage, http://www.qiniu.com/
 qiniu_access_key: "your_access_key"
 qiniu_secret_key: "your_secret_key"
@@ -5,6 +9,17 @@ qiniu_bucket: "xxxx"
 qiniu_bucket_domain: "xxxx"
 qiniu_block_size: "4*1024*1024"
 qiniu_protocal: "http"
+
+# upyun
+upyun_username: "your upyun username"
+upyun_password: "your upyun password:"
+
+# aliyun
+aliyun_access_id: 'your access id'
+aliyun_access_key: 'your access key'
+aliyun_bucket: 'your bucket name'
+aliyun_area: "cn-shenzhen"
+aliyun_host: "https://xxx.oss-cn-shenzhen.aliyuncs.com"
 
 # pusher - message really time push, https://pusher.com
 pusher_app_id: 'your_pusher_id'

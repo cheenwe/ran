@@ -15,7 +15,6 @@ gem 'angularjs-rails', '1.2.22'
 gem 'devise'
 
 #  setting
-# gem 'rails-settings-cached'
 gem 'config'
 
 gem 'rails-i18n'#, github: 'svenfuchs/rails-i18n', branch: 'master'

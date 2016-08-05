@@ -21,3 +21,15 @@ sudo -u postgres psql
 CREATE USER "root" WITH CREATEDB PASSWORD '123123123';
 create database "ran-dev" WITH OWNER="root";
 ```
+
+or
+
+```
+psql -c "CREATE USER \"root\" WITH CREATEDB PASSWORD '123123123';"
+```
+
+or
+
+```
+sudo psql -c "CREATE USER \"root\" WITH CREATEDB PASSWORD '123123123';"
+```
