@@ -34,6 +34,7 @@ gem 'active_model_serializers'
 # API Request Frequency Limit
 gem 'rack-attack'
 
+gem 'devise'
 # 权限
 gem 'cancancan'
 # gem 'active_model_serializers-cancan'
