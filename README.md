@@ -6,7 +6,7 @@
 
 ## 后台任务序列/sidekiq
 
-http://localhost:3000/sidekiq
+http://localhost:3000//admin/sidekiq
 
 ## 性能监控/newrelic
 

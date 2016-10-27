@@ -6,8 +6,6 @@ tmp/*
 !/log/.keep
 !/tmp/.keep
 .byebug_history
-app/assets/webpack/
-client/
 public/uploads/*
 public/qrcode/
 public/assets/
@@ -15,11 +13,11 @@ public/fonts/
 config/database.yml
 config/settings.yml
 db/data.yml
-db/schema.rb
 current
 releases/
 repo/
 revisions.log
 shared/
-app/docs/
+docs/*
+.idea/
 node_modules/
