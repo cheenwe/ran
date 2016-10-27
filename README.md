@@ -1,13 +1,24 @@
 # README
 
-[Commit](./docs/commit.md)
+Rails with React
 
-[Gems](./docs/gems.md)
+learn from [Akiyama](https://github.com/sven199109/akiyama)
 
-## 后台任务序列/sidekiq
+## usage
 
-http://localhost:3000//admin/sidekiq
+```sh
+git clone https://github.com/cheenwe/ran.git
+cd ran && git checkout rails5
+bundle
+rake db:setup
+foreman start
+```
 
-## 性能监控/newrelic
+bundle
+rake db:create && rake db:migrate && rake db:seed
+
+## 插件
+
+### 性能监控/newrelic
 
 http://localhost:3000/newrelic
