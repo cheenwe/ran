@@ -10,13 +10,12 @@
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev",
     "test": "rspec"
   },
-  "name": "git cz",
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.6"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "devDependencies": {
-    "cz-conventional-changelog": "^1.1.6"
   }
 }
