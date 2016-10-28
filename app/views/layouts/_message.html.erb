@@ -1,0 +1,12 @@
+<% if flash.any? %>
+  <% flash.each do |k, v| %>
+    <%= react_component(
+        'AlertApp',
+        props: {
+          message: v,
+          type: message_type(k)
+        }
+      )
+    %>
+  <% end %>
+<% end %>

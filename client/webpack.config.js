@@ -12,6 +12,11 @@ const config = {
     'es5-shim/es5-sham',
     'babel-polyfill',
     './app/bundles/HelloWorld/startup/HelloWorldApp',
+    './app/bundles/LoginForm/startup/LoginFormApp',
+    './app/bundles/SearchForm/startup/SearchFormApp',
+    './app/bundles/CommonTable/startup/CommonTableApp',
+    './app/bundles/UserForm/startup/UserFormApp',
+    './app/bundles/Alert/startup/AlertApp',
     './app/bundles/Styles/style',
   ],
 
@@ -33,6 +38,7 @@ const config = {
         NODE_ENV: JSON.stringify(nodeEnv),
       },
     }),
+    new ExtractTextPlugin("[name].css"),
   ],
   module: {
     loaders: [
@@ -49,6 +55,10 @@ const config = {
         test: /\.scss$/,
         //loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
         loader:  "style!css!sass"
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
       },
     ],
   },

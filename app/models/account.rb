@@ -1,4 +1,5 @@
-class User < ApplicationRecord
+class Account < ApplicationRecord
+  self.table_name = 'users'
 
   include Concerns::Tablable
   # Include default devise modules. Others available are:

@@ -1,0 +1,16 @@
+<h3 class="f-title">所有用户
+  <%= link_to '新建用户', new_user_path %>
+</h3>
+<%= react_component('SearchFormApp', props: {
+  action: users_path,
+  default: params[:q],
+  style: { width: 200, marginTop: 20, marginLeft: 10 }
+})%>
+<%= react_component('CommonTableApp', props: {
+  dataSource: @users,
+  total: @users.total_entries,
+  page_size: @users.per_page,
+  current: @users.current_page,
+  type: 'users',
+  columnNames: User.table_attrs
+}) %>

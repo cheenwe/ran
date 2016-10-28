@@ -1,0 +1,9 @@
+<h3 class="f-title">新建用户</h3>
+<%= react_component('UserFormApp',
+  props: {
+    action: users_path,
+    method: 'POST',
+    csrf_token: session[:_csrf_token],
+    user: @user
+  }
+) %>
