@@ -12,6 +12,7 @@ const config = {
     'es5-shim/es5-sham',
     'babel-polyfill',
     './app/bundles/HelloWorld/startup/HelloWorldApp',
+    './app/bundles/Styles/style',
   ],
 
   output: {
@@ -20,7 +21,7 @@ const config = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.css'],
     alias: {
       react: path.resolve('./node_modules/react'),
       'react-dom': path.resolve('./node_modules/react-dom'),
@@ -46,7 +47,8 @@ const config = {
       },
        {
         test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        //loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        loader:  "style!css!sass"
       },
     ],
   },
