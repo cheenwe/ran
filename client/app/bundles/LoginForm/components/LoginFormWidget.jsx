@@ -32,7 +32,7 @@ export default class LoginFormWidget extends React.Component {
         		<Col span="10">
 
 
-				<Form horizontal  action="/account/sign_in" method="POST" onSubmit={this.handleSubmit}
+				<Form horizontal  action="/user/sign_in" method="POST" onSubmit={this.handleSubmit}
 					style={formStyle}>
 
 					<h2>Log in</h2>

@@ -13,11 +13,20 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    puts "1111111111111"
     if @user.save
+    puts "save            ===="
+
       flash[:success] = 'User saved.'
       redirect_to users_path
     else
+    puts "error            ===="
+
       flash.now[:error] = @user.errors.full_messages.first
+
+    puts  flash.now[:error]
+    puts  flash.now[:error]
+
       render :new
     end
   end
