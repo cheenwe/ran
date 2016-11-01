@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+   belongs_to :app, class_name: :App
+
 
   table_attr :email, :sign_in_count, :created_at, :current_sign_in_at, :last_sign_in_ip
 

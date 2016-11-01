@@ -5,6 +5,9 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'rails-i18n'
 
 gem 'sqlite3'
+# gem 'mysql2'
+gem 'pg'
+
 
 gem 'puma', '~> 3.0'
 
