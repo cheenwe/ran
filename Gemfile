@@ -16,13 +16,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
-# gem 'acts-as-taggable-on', '~> 3.5.0'
-# gem 'acts_as_follower', '~> 0.2.1'
-gem 'devise', github: 'plataformatec/devise'
-# gem 'erubis'
-gem 'jwt'#, '~> 1.5.4'
-gem 'rack-cors'#, '~> 0.4.0'
-
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13.0'
