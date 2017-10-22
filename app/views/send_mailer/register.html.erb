@@ -1,0 +1,3 @@
+<p class="lead">欢迎您, <%= @mail[:email] %></p>
+<p>您已经成功注册 <%= link_to Setting.app_name, "http://#{Setting.host_name}" %> 的账号，本次请求验证码为: <div class="text-danger"><%= @mail[:code] %></div></p>
+<p class="text-muted">如果您未注册账号，请忽略这封邮件，谢谢。</p>
