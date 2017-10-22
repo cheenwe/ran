@@ -1,7 +1,27 @@
-# config/app.yml for rails-settings-cached
 defaults: &defaults
-  foo: "Foo"
-  bar: 123
+# base config
+  app_name: "iStar"
+  host_name: localhost:3000
+  protocol: http
+
+# mail config
+  mailer_sender: 'username@hostname.com'
+  mailer_sender_display_name: iStar
+
+  email_reply_to: noreply@example.com
+  email_subject_suffix: ''
+
+
+  email_delivery:
+    delivery_method: :smtp #sendmail
+    smtp_settings:
+      address: "smtp.hostname.com"
+      port: 25
+      domain: "hostname.com"
+      authentication: :login
+      user_name: "username@hostname.com"
+      password: "userpassword"
+
 
 development:
   <<: *defaults
