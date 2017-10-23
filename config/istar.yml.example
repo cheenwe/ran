@@ -22,6 +22,14 @@ defaults: &defaults
       user_name: "username@hostname.com"
       password: "userpassword"
 
+  omniauth_modules: "github,weibo"
+
+  github_token: xxx
+  github_secret: xxx
+
+  weibo_token: xxx
+  weibo_secret: xxx
+
 
 development:
   <<: *defaults
