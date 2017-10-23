@@ -1,0 +1,164 @@
+<nav role="navigation" class="navbar topnavbar">
+	<div class="navbar-header">
+		<a href="/" class="navbar-brand">
+			<div class="brand-logo">
+				<img src="<%= image_path('logo.png') %>" alt="App Logo" class="img-responsive" />
+			</div>
+
+			<div class="brand-logo-collapsed">
+				 <img src="<%= image_path('logo_single.png') %>" alt="App Logo" class="img-responsive" />
+			</div>
+		</a>
+		</div>
+	<div class="nav-wrapper">
+		<ul class="nav navbar-nav">
+			<li>
+				<a href="#" data-toggle-state="aside-collapsed" class="hidden-xs">
+					<em class="fa fa-navicon"></em>
+				</a>
+				<a href="#" data-toggle-state="aside-toggled" data-no-persist="true" class="visible-xs sidebar-toggle">
+					<em class="fa fa-navicon"></em>
+				</a>
+			</li>
+			<li>
+				<a href="#user-block" data-toggle="collapse">
+					<em class="fa fa-user"></em>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li class="visible-lg">
+				<a href="#" data-toggle-fullscreen="">
+					<em class="fa fa-expand"></em>
+				</a>
+			</li>
+
+			<li class="dropdown" ng-controller="NotificationsCtrl" ng-init="unReadedCount()">
+				<div class="dropdown">
+					<a href="/notifications" data-toggle="dropdown">
+						<em class="fa fa-bell-o"></em>
+						<div class="label label-danger" ng-class="{'unreaded': notificationCount > 0}" ng-bind="notificationCount"></div>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<div class="list-group">
+								<!-- list item-->
+								<a href="#" class="list-group-item">
+									<div class="media-box">
+										<div class="pull-left">
+											<em class="fa fa-twitter fa-2x text-info"></em>
+										</div>
+										<div class="media-box-body clearfix">
+											<p class="m0">公告通知</p>
+											<p class="m0 text-muted">
+												<small>1 新公告通知</small>
+											</p>
+										</div>
+									</div>
+								</a>
+								<!-- list item-->
+								<a href="#" class="list-group-item">
+									<div class="media-box">
+										<div class="pull-left">
+											<em class="fa fa-envelope fa-2x text-warning"></em>
+										</div>
+										<div class="media-box-body clearfix">
+											<p class="m0">待处理审核</p>
+											<p class="m0 text-muted">
+												<small> 10 条记录</small>
+											</p>
+										</div>
+									</div>
+								</a>
+								 <!-- list item-->
+								<a href="#" class="list-group-item">
+									<div class="media-box">
+										 <div class="pull-left">
+											<em class="fa fa-tasks fa-2x text-success"></em>
+										 </div>
+										 <div class="media-box-body clearfix">
+											<p class="m0">未完成任务</p>
+											<p class="m0 text-muted">
+												<small>11 任务</small>
+											</p>
+										 </div>
+									</div>
+								</a>
+								 <!-- last list item -->
+								<a href="/notifications" class="list-group-item">
+									<small>More notifications</small>
+									<span class="label label-danger pull-right">14</span>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+　
+			<li  class="dropdown">
+				<div class="dropdown">
+					<a id="changeTheme" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"  >
+						切换色调 <span class="caret"></span>
+					</a>
+					<ul aria-labelledby="changeTheme" class="dropdown-menu animated fadeInRight">
+						<li>
+							<a href="javascript:void(0);"  data-load-css="<%= asset_path('ran/themes/theme-1.css') %>" ng-click="selectTheme('theme-1')">天蓝</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-load-css="<%= asset_path('ran/themes/theme-2.css') %>"  ng-click="selectTheme('theme-2')">深蓝</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-load-css="<%= asset_path('ran/themes/theme-3.css') %>"  ng-click="selectTheme('theme-3')">紫色</a>
+						</li>
+						<li>
+							<a href="javascript:void(0);" data-load-css="<%= asset_path('ran/themes/theme-4.css') %>"  ng-click="selectTheme('theme-4')">红色</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+
+			<li class="dropdown">
+				<a href="#" id="userInfo" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" id="setting" >
+				<span class="user-block-name"><%= current_user.username %></span>
+				<i class="fa fa-angle-down"></i>
+				</a>
+				<ul aria-labelledby="userInfo" class="dropdown-menu animated flipInX">
+					<li>
+						<div class="list-group">
+							<a href="<%= ng_show_user_path(current_user.id)%>"  class="list-group-item">
+								<div class="media-box">
+									<div class="pull-left">
+										<em class="fa fa-user fa-2x text-warning"></em>
+									</div>
+									<div class="media-box-body clearfix">
+										<p class="m0"><%=  t(:user_info) %></p>
+									</div>
+								</div>
+							</a>
+							<a href="<%= destroy_user_session_path %>" data-method="delete" class="list-group-item">
+								<div class="media-box">
+									<div class="pull-left">
+										<em class="fa fa-sign-out fa-2x text-success"></em>
+									</div>
+									<div class="media-box-body clearfix">
+										<p class="m0"><%=  t(:logout) %></p>
+									</div>
+								</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+	</div>
+
+<!-- 	<form role="search" action="search.html" class="navbar-form">
+		<div class="form-group has-feedback">
+			<input type="text" placeholder="Type and hit enter ..." class="form-control" />
+			<div data-search-dismiss="" class="fa fa-times form-control-feedback"></div>
+		</div>
+		<button type="submit" class="hidden btn btn-default">Submit</button>
+	</form> -->
+</nav>

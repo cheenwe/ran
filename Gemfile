@@ -47,3 +47,12 @@ gem "rails-settings-cached"
 gem 'redis'
 gem 'redis-namespace'
 gem "redis-rails"
+
+# account
+
+gem 'devise', github: "plataformatec/devise"
+
+gem 'omniauth'
+gem 'omniauth-weibo-oauth2'
+gem 'omniauth-github'
+

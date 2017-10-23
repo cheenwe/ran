@@ -8,7 +8,33 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body  ng-app="imerpApp"  class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-closed page-md">
+
+        <div class="page-wrapper">
+            <% if user_signed_in? %>
+                <%= render "layouts/share/header"%>
+
+                <!-- BEGIN HEADER & CONTENT DIVIDER -->
+                <div class="clearfix"> </div>
+                <!-- END HEADER & CONTENT DIVIDER -->
+
+                <div class="page-container">
+                    <%= render "layouts/share/sidebar"%>
+
+                    <!-- BEGIN CONTENT -->
+                    <div class="page-content-wrapper">
+                        <!-- BEGIN CONTENT BODY -->
+                        <div class="page-content">
+
+                            <%= yield %>
+                        </div>
+                    </div>
+                </div>
+
+                <%= render "layouts/share/footer"%>
+            <% else %>
+                <%= yield %>
+            <% end %>
+        </div>
   </body>
 </html>

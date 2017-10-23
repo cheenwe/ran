@@ -1,5 +1,17 @@
 {
   "name": "istar",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+
+    "angular": "^1.6.1",
+    "angular-cookies": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "bootstrap": "^3.3.7",
+    "jquery-backstretch": "^2.1.16",
+    "jquery-ujs": "^1.2.2",
+    "jquery-validation": "^1.17.0",
+    "restangular": "^1.6.1",
+    "simple-line-icons": "^2.4.1",
+    "underscore": "^1.8.3"
+  }
 }

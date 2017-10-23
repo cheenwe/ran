@@ -1,24 +1,62 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usage
 
-Things you may want to cover:
+```shell
+git clone xxxx imerp
+cd imerp
+bin/setup
+```
 
-* Ruby version
 
-* System dependencies
+## install
 
-* Configuration
+cnpm
 
-* Database creation
+>alias cnpm="npm --registry=https://registry.npm.taobao.org \
+--cache=$HOME/.npm/.cache/cnpm \
+--disturl=https://npm.taobao.org/dist \
+--userconfig=$HOME/.cnpmrc"
 
-* Database initialization
+# Or alias it in .bashrc or .zshrc
+>echo '\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=https://npm.taobao.org/dist \
+  --userconfig=$HOME/.cnpmrc"' >> ~/.zshrc && source ~/.zshrc
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+brew install yarn
+
+cnpm install yarn -g
+
+yarn config set registry https://registry.npm.taobao.org
+
+npm install --save  angular angular-cookies angular-route  restangular  underscore simple-line-icons
+
+
+## yarn
+
+yarn install
+
+yarn add [package]
+
+yarn install --force
+
+
+yarn remove [package]
+
+yarn cache clean
+
+yarn upgrade
+
+
+
+## update npm
+curl -0 -L http://npmjs.org/install.sh | sudo sh
+
+
+
+npm install --force

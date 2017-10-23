@@ -9,7 +9,20 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//= require jquery
+//= require jquery-validation/dist/jquery.validate
+//= require jquery-backstretch/jquery.backstretch
 //= require rails-ujs
+//= require bootstrap/dist/js/bootstrap.min
 //= require turbolinks
+//= require underscore/underscore
+//= require angular/angular
+//= require restangular/dist/restangular
+//= require angular-cookies/angular-cookies
+//= require angular-route/angular-route
+//= require style
+//= require layout
+//= require login
+//= require app
+//= require_tree ./controllers
 //= require_tree .

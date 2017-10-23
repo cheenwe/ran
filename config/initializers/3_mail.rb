@@ -1,5 +1,7 @@
 ActionMailer::Base.delivery_method = Istar.config.email_delivery["delivery_method"]
 
+ActionMailer::Base.default_url_options =  { :host => "#{Istar.config.protocol}://#{Istar.config.host_name }"}
+
 if ActionMailer::Base.delivery_method == :smtp
     ActionMailer::Base.smtp_settings = {
       :address => Istar.config.email_delivery["smtp_settings"]["address"],

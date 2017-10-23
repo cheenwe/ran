@@ -1,0 +1,14 @@
+<p class="lead">Welcome <%= @resource.username %>!</p>
+
+<p>You can   <span class="text-danger">confirm</span> your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token), class: 'btn'  %></p>
+
+
+or open link in brower.
+
+<p><%= confirmation_url(@resource, confirmation_token: @token) %></p>
+
+
+
+

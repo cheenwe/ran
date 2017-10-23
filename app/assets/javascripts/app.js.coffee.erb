@@ -1,0 +1,43 @@
+app = angular.module("imerpApp", [
+  "restangular",
+  "ngRoute",
+  "ngCookies",
+
+])
+
+app.config(['$httpProvider', ($httpProvider) ->
+  authToken = $("meta[name=\"csrf-token\"]").attr("content")
+  $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
+])
+
+
+app.controller 'LoginCtrl', () ->
+return
+
+app.config(['$routeProvider', ($routeProvider) ->
+  $routeProvider.when '/account/sign_in', templateUrl: 'devise/sessions/new.html.erb', controller: 'LoginCtrl',
+  #$routeProvider.otherwise({ templateUrl: '/templates/welcome/404.html', controller: 'RootCtrl' } )
+])
+
+
+app.config(['RestangularProvider', (RestangularProvider) ->
+  RestangularProvider.setBaseUrl('/api/v1/')
+  RestangularProvider.addResponseInterceptor (data, operation, what, url, response, deferred) ->
+    extractedData = undefined
+
+    if operation is "getList" or "get" or "customGETLIST"
+      if data.body
+        extractedData = data.body
+        extractedData.meta = data.meta
+      else
+        extractedData = data
+        extractedData.meta = data.meta
+    else
+      extractedData = data
+    extractedData
+])
+
+
+app.factory 'User', ['Restangular', (Restangular) ->
+  Restangular.service 'users'
+]

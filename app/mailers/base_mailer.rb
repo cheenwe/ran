@@ -7,18 +7,21 @@ class BaseMailer < ActionMailer::Base
   default charset: "utf-8"
   default content_type: "text/html"
 
-  def self.default_url_options
-    options = {:protocol => Setting.protocol}
-    if Setting.host_name.to_s =~ /\A(https?\:\/\/)?(.+?)(\:(\d+))?(\/.+)?\z/i
-      host, port, prefix = $2, $4, $5
-      options.merge!({
-        :host => host, :port => port, :script_name => prefix
-      })
-    else
-      options[:host] = Setting.host_name
-    end
-    options
-  end
+  default_url_options[:host] = Istar.config.protocol + Istar.config.host_name
+
+
+  # def self.default_url_options
+  #   options = {:protocol => Istar.config.protocol}
+  #   if Istar.config.host_name.to_s =~ /\A(https?\:\/\/)?(.+?)(\:(\d+))?(\/.+)?\z/i
+  #     host, port, prefix = $2, $4, $5
+  #     options.merge!({
+  #       :host => host, :port => port, :script_name => prefix
+  #     })
+  #   else
+  #     options[:host] = Istar.config.host_name
+  #   end
+  #   options
+  # end
 
   private
 
