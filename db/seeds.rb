@@ -12,8 +12,9 @@ User.create!(
     password:"123123123",
     confirmed_at: Time.now
     )
+
+
 p "*"*80
-p "admin create succsss."
 p "account:  admin@qq.com "
 p "password:  123123123 "
 p "*"*80

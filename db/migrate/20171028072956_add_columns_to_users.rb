@@ -1,6 +1,6 @@
 class AddColumnsToUsers < ActiveRecord::Migration[5.1]
   def change
-    add_column :users, :uuid, :string, limit: 100
+    add_column :users, :uid, :string, limit: 32
     add_column :users, :name, :string, limit: 100
     add_column :users, :english_name, :string, limit: 100
     add_column :users, :avatar, :string

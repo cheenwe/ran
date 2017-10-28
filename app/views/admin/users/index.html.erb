@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Uuid</th>
+      <th>Uid</th>
       <th>Email</th>
       <th>Name</th>
       <th>English name</th>
@@ -20,7 +20,7 @@
   <tbody>
     <% @admin_users.each do |admin_user| %>
       <tr>
-        <td><%= admin_user.uuid rescue ''%></td>
+        <td><%= admin_user.uid %></td>
         <td><%= admin_user.email %></td>
         <td><%= admin_user.name %></td>
         <td><%= admin_user.english_name %></td>

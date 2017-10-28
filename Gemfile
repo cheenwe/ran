@@ -50,3 +50,7 @@ gem "redis-rails"
 
 #Account manage
 gem 'devise'
+
+gem 'omniauth'
+gem 'omniauth-github'
+

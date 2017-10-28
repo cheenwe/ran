@@ -1,10 +1,31 @@
+site_configs: &site_configs
+  footer_html: |
+    <p class="copyright">
+     &copy; Powered by <a href="http://cheenwe.cn">iStar</a>.
+    </p>
+
+
 defaults: &defaults
-# base config
+  <<: *site_configs
+
+  ## app base config
   app_name: "iStar"
   host_name: localhost:3000
   protocol: http
 
-# mail config
+  default_password: "12344321"
+
+
+  admin_emails: >
+    admin@qq.com
+
+  ## mail config
+  mailer_sender: 'project@em-data.com.cn'
+  mailer_sender_display_name: iStar
+
+  email_reply_to: noreply@example.com
+  email_subject_suffix: ''
+
   mailer_sender: 'username@hostname.com'
   mailer_sender_display_name: iStar
 
@@ -21,6 +42,15 @@ defaults: &defaults
       authentication: :login
       user_name: "username@hostname.com"
       password: "userpassword"
+
+  ## OmniAuth settings
+  omniauth_modules: >
+    github
+  #'weibo,github'
+
+
+  github_token: "99afd5eca146fad1010b"
+  github_secret: "13ce380841f5e11bbbd3b3d3ee8439b54ee382ba"
 
 
 development:
