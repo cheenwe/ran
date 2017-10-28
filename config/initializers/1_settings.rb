@@ -2,8 +2,18 @@
 class Settings < RailsSettings::Base
   source Rails.root.join("#{Rails.root}/config/istar.yml")
   namespace Rails.env
+  SEPARATOR_REGEXP = /[\s,]/
 
   class << self
+
+    def base_url
+      [self.protocol, self.host_name].join("://")
+    end
+
+    def has_admin?(email)
+      return false if self.admin_emails.blank?
+      self.admin_emails.split(SEPARATOR_REGEXP).include?(email)
+    end
 
     def gitlab_on_standard_port?
       on_standard_port?(gitlab)

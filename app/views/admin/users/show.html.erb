@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uuid:</strong>
+  <%= @admin_user.uuid %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @admin_user.email %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_user.name %>
+</p>
+
+<p>
+  <strong>English name:</strong>
+  <%= @admin_user.english_name %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @admin_user.avatar %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @admin_user.state %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @admin_user.type %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @admin_user.bio %>
+</p>
+
+<%= link_to 'Edit', edit_admin_user_path(@admin_user) %> |
+<%= link_to 'Back', admin_users_path %>
