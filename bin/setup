@@ -102,8 +102,9 @@ Dir.chdir APP_ROOT do
   end
 
   puts_line "Seed default data..." do
-    `RAILS_ENV=development bundle exec rails db:setup`
+    system "RAILS_ENV=development bundle exec rails db:setup"
   end
+
 
   puts "\n== Removing old logs and tempfiles =="
   system "rm -f log/*"

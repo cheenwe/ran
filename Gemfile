@@ -47,3 +47,6 @@ gem "rails-settings-cached"
 gem 'redis'
 gem 'redis-namespace'
 gem "redis-rails"
+
+#Account manage
+gem 'devise'
