@@ -1,5 +1,10 @@
 {
   "name": "istar",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery-ujs": "^1.2.2",
+    "jquery-backstretch": "^2.1.16",
+    "bootstrap": "^3.3.7",
+    "simple-line-icons": "^2.4.1"
+  }
 }

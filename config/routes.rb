@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  match 'icons', to: 'page#icons', via: [:get]
 
 end

@@ -1,3 +1,115 @@
+    <body class="login">
+        <!-- BEGIN : LOGIN PAGE 5-1 -->
+        <div class="user-login-5">
+            <div class="row bs-reset">
+                <div class="col-md-6 col-xs-12 bs-reset mt-login-5-bsfix">
+                    <div class="login-bg">
+                        <img class="login-logo" src="<%= image_path('logo.svg')%>" />
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12 login-container bs-reset mt-login-5-bsfix"">
+                    <div class="login-content">
+                        <h1>imERP Login Page</h1>
+                        <p> Login in and Continue. </p>
+
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"login-form") do |f| %>
+
+                            <div class="alert alert-danger display-hide">
+                                <button class="close" data-close="alert"></button>
+                                <span>Enter your username and password. </span>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-group form-md-line-input has-success">
+                                        <div class="input-icon">
+                                            <input type="text" class="form-control" name="user[email]" autocomplete="on"  id="user" required/>
+                                            <span class="help-block">Some help goes here...</span>
+                                            <i class="icon icon-user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-group form-md-line-input has-success">
+                                        <div class="input-icon">
+                                            <input type="password" class="form-control" name="user[password]" id="password" autocomplete="off" required/>
+                                            <span class="help-block">Some help goes here...</span>
+                                            <i class="icon icon-key"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="md-checkbox">
+                                        <input type="checkbox" id="checkbox1" class="md-check">
+                                        <label for="checkbox1">
+                                        <span></span>
+                                        <span class="check"></span>
+                                        <span class="box"></span> Remember me </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-actions">
+                                        <button type="submit"  class="btn green btn-block uppercase">Login</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        <% end %>
+
+
+                        <div class="row line">
+                        </div>
+
+                        <br>
+
+                        <div class="row col-md-12">
+                            <div class="col-md-6 col-xs-6">
+                                <p>
+                                    <a href="<%= new_registration_path(resource_name) %>" id="register-btn" class="uppercase">Create an account</a>
+                                </p>
+                            </div>
+
+                            <div class="col-md-6 col-xs-6">
+                                <p>
+                                    <a href="/users/auth/github" title="Github"><i class="icon 2x icon-social-github"></i></a>
+
+                                    <a href="<%= new_password_path(resource_name) %>" id="forget-password" class="forget-password pull-right">Forgot Password?</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="login-footer">
+                            <div class="col-xs-7 bs-reset">
+                                <div class="login-copyright text-right">
+                                    <%= raw Istar.config.footer_html %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+
+<!--
+
+
+
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,3 +136,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+ -->

@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20171028171809) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid", limit: 32
     t.string "name", limit: 100
     t.string "english_name", limit: 100
     t.string "avatar"

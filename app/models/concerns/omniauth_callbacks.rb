@@ -35,7 +35,6 @@ module OmniauthCallbacks
           else
             "#{provider}+#{uid}@#{Istar.config.host_name}"
           end
-        puts  data
         if provider == 'github'
           user.name = data['name']
           user.name = data['nickname']
@@ -44,7 +43,6 @@ module OmniauthCallbacks
           user.name = data['info']['name']
           user.username = data['info']['nickname']
           user.username.gsub!(/[^\w]/, '_')
-
         end
 
         if user.name.blank?
