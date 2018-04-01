@@ -7,7 +7,7 @@ module Admin
     # before_action :set_active_menu
 
     def require_admin
-      render_404 unless current_user.admin?
+      render_403 unless current_user.admin?
     end
 
     # def set_active_menu
