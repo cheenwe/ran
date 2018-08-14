@@ -29,3 +29,6 @@ or
 
 >Rails.application.credentials.key_name[:nested_key_name]
 
+3. Qrcode
+
+https://github.com/whomwah/rqrcode/
